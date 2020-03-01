@@ -1,14 +1,23 @@
 package com.accenture.tagtrainingspring;
 
+import com.accenture.tagtrainingspring.patient.Gender;
+import com.accenture.tagtrainingspring.patient.Patient;
+import com.accenture.tagtrainingspring.screening.Screening;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.time.LocalDate;
 
 @SpringBootApplication
 public class TagTrainingSpringApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TagTrainingSpringApplication.class, args);
-		printWelcomeMessage();
+
+		LocalDate now = LocalDate.now();
+
+		Patient joe = new Patient("Joe", 1, now, Gender.MALE);
+		Screening screening = new Screening(1, 1, now, false);
 	}
 
 	private static void printWelcomeMessage() {
