@@ -8,10 +8,10 @@ This course is perfect for complete **Java newbie's**. If you have previous expe
 
 Some of the things we'll cover:   
 
-  - Setting up you development environment
-  - Working with Git to clone, commit, push and merge
-  - Creating classes with variables, methods and other fun stuff in Java
-  - Creating a front end for our app in Angular to input data from a users perspective
+  - Setting up you development environment.
+  - Working with Git to clone, commit, push and merge.
+  - Creating classes with variables, methods and other fun stuff in Java.
+  - Creating a front end for our app in Angular to input data from a users perspective.
 
 Lets get started...
 
@@ -30,41 +30,67 @@ Some of the tools we'll be using today include:
 
 Watch the below videos before you attempt the first task:
 
-* [What is Git] - Overview of what Git is and why we use it
-* [Git Hipster Analogy] - Another way to think about version control systems
-* [Create a GitHub Account] - Set yourself up with a brand new Github account (If you already have one, great!) 
-* [Basic Git Commands] - Set yourself up with a brand new Github account (If you already have one, great!) 
-* [What is Java] - Overview of Java
+* [What is Git] - Overview of what Git is and why we use it.
+* [Git Hipster Analogy] - Another way to think about version control systems.
+* [Create a GitHub Account] - Set yourself up with a brand new Github account (If you already have one, great!). 
+* [Basic Git Commands] - Basics such as clone, push, pull & branch which you'll need.
+* [What is Java] - Overview of Java.
 * [JRE & JDK] - A bit more background on Java. Good to know...
-* [Creating a Basic Intellij Java Project] - Another nice to know to get you familiar with Intellij. We'll be importing our project however
-* [Variables] - Variables are used in all programming languages to store data
+* [Creating a Basic Intellij Java Project] - Another nice to know to get you familiar with Intellij. We'll be importing our project however.
+* [Packages] - Classes are stored in packages. They help to logically organize our code.
+* [Variables] - Variables are used in all programming languages to store data.
 * [Classes] - Classes are a how we represent our data.
-* [Methods] - These allow us to perform operations on our classes
+* [Methods] - These allow us to perform operations on our classes.
+* [Strings] - Strings represent sentences and allow us to represent information.
 
 ### Tasks
 
-With the videos watched, we can now move onto the fun part. What we'll be doing today is setting up our development environment, cloning this repo to your local environment and creating a basic Java class.
+With the videos watched, we can now move onto the fun part. What we'll be doing today is setting up our development environment, cloning this repo to our local environment and start creating some basic Java classes.
 
 #### Task 1
-1. Setup up Git on your local PC
-2. Clone this Git repository to somewhere on your computer
-3. Import the project into Intellij
-4. Run the app
+1. Setup up Git on your local PC.
+2. Clone this Git repository to somewhere on your computer.
+3. Import the project into Intellij.
+4. Run the app. You should see a welcome message in the console screen.
 
 *Hints*
-* You can install [Git for Windows] to use Git... on Windows
-* it's a good idea to have a dedicated development folder on your PC. Perhaps C:/development/projects...
+* You can install [Git for Windows] to use Git on your laptop.
+* It's a good idea to have a dedicated development folder on your PC. Perhaps C:/development/projects...
 * Import the project as a Maven project. We'll come to what Maven is later.
 
 #### Task 2
-1. Create a basic class to represent a patient in our project. 
-   1. Name
-   2. Date of Birth
-   3. Gender
-2. Create another class to represent a screening 
----
+With the app up and running, we can now write some basic code. In our project, we want to represent patients and their cancer diagnoses. We can do this using classes. These classes will contain multiple fields to represent information.
 
-## Day 2
+1. First thing first is to create a branch for our new code. 
+2. Create a basic class to represent a ```Patient```. Put this object in a new package.
+    1. Name 
+    2. Id 
+    2. Date of Birth 
+    3. Gender
+3. Create another class to represent a ```Screening```. Again, store it in a new package.
+    1. Screening Id 
+    2. Patient Id
+    3. Date of Screening
+    4. Malignant Result
+4. Add a constructor to each class.
+5. Add getters and setters for each field.
+6. In your main class, create a new instance of each object using some dummy data.
+7. Print out the patients name and their diaganosis to the console using a ```String```.
+8. Change the ```patientId``` field in ```Screening``` to be an instance of ```Patient```. You will need to update the constructor, getters & setters.
+9. Rerun the app and verify the same info is printed to the console.
+10. Update the patients name using the setter on the ```Patient``` class. Verify the new name is printed.
+10. Merge your changes into your main branch and push it up to Github!
+
+*Hints*
+* In most project you have a main branch and your own dev branch. Call the branch something identifiable, such as john_doe_dev.
+* Switching to a new branch is easy. Simply use ```git checkout -b <branch>```
+* Packages help logically organize our code. You can either create a package called models for both classes or better yet a new package for each.
+* [Naming] is important in Java. i.e. ```Patient``` class goes into the ```patient``` package. 
+* ID fields are normally of type ```Integer```, i.e. 1, 2, 3...
+* Date's can be represented using the ```LocalDate``` type.
+* Gender can be easily represented using [Enums]
+* Constructors, getters and setters can be automatically [generated] by Intellij to save a lot of typing!
+---
 
 [What is Git]: <https://app.pluralsight.com/course-player?clipId=3fd2f988-28c6-4cbb-8851-94de23080b51>
 [Create a GitHub Account]: <https://app.pluralsight.com/course-player?clipId=0fba4e77-ad72-405f-bb1e-042a6de673cc>
@@ -76,4 +102,10 @@ With the videos watched, we can now move onto the fun part. What we'll be doing 
 [Variables]: <https://app.pluralsight.com/course-player?clipId=11a5bc5d-1099-43c5-b773-43045ed9bf0e>
 [Classes]: <https://app.pluralsight.com/course-player?clipId=6643ae8b-28b6-41fb-bba4-569ef4731e36>
 [Methods]: <https://app.pluralsight.com/course-player?clipId=749e618f-c96d-4bd4-b189-40de5ace3cc2>
-[Git for Windows]: https://git-scm.com/download/win
+[Strings]: <https://app.pluralsight.com/course-player?clipId=51951ff1-78df-4253-841d-7e8fe9e5fc8c>
+[Git for Windows]: <https://git-scm.com/download/win>
+[Packages]: <https://app.pluralsight.com/course-player?clipId=19f914da-1abe-47dd-baf7-6018d4a14e07>
+[LocalDate]: <http://tutorials.jenkov.com/java-date-time/localdate.html>
+[Naming]: <https://www.javatpoint.com/java-naming-conventions>
+[Enums]: <https://app.pluralsight.com/course-player?clipId=b0f36740-9708-4229-a7cd-ddaaf0ccbf86>
+[generated]: <https://www.jetbrains.com/help/idea/generating-code.html>
