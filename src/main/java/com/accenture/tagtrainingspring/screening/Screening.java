@@ -1,20 +1,22 @@
 package com.accenture.tagtrainingspring.screening;
 
+import com.accenture.tagtrainingspring.patient.Patient;
+
 import java.time.LocalDate;
 
 public class Screening {
 
     private int screeningId;
 
-    private int patientId;
+    private Patient patient;
 
     private LocalDate screeningDate;
 
     private boolean malignant;
 
-    public Screening(int screeningId, int patientId, LocalDate screeningDate, boolean malignant) {
+    public Screening(int screeningId, Patient patient, LocalDate screeningDate, boolean malignant) {
         this.screeningId = screeningId;
-        this.patientId = patientId;
+        this.patient = patient;
         this.screeningDate = screeningDate;
         this.malignant = malignant;
     }
@@ -27,12 +29,12 @@ public class Screening {
         this.screeningId = screeningId;
     }
 
-    public int getPatientId() {
-        return patientId;
+    public Patient getPatient() {
+        return patient;
     }
 
-    public void setPatientId(int patientId) {
-        this.patientId = patientId;
+    public void setPatientId(Patient patient) {
+        this.patient = patient;
     }
 
     public LocalDate getScreeningDate() {

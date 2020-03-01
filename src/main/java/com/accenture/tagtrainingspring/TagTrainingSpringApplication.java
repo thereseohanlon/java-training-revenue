@@ -17,7 +17,7 @@ public class TagTrainingSpringApplication {
 		LocalDate now = LocalDate.now();
 
 		Patient joe = new Patient("Joe", 1, now, Gender.MALE);
-		Screening screening = new Screening(1, 1, now, false);
+		Screening screening = new Screening(1, joe, now, false);
 
 		System.out.println("Patient: " + joe.getName() + " has a screening result of: " + screening.isMalignant());
 
