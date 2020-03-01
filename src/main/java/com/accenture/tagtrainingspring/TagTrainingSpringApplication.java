@@ -18,6 +18,9 @@ public class TagTrainingSpringApplication {
 
 		Patient joe = new Patient("Joe", 1, now, Gender.MALE);
 		Screening screening = new Screening(1, 1, now, false);
+
+		System.out.println("Patient: " + joe.getName() + " has a screening result of: " + screening.isMalignant());
+
 	}
 
 	private static void printWelcomeMessage() {
