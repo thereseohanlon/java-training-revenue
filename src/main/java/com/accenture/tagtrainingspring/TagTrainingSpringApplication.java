@@ -3,6 +3,7 @@ package com.accenture.tagtrainingspring;
 import com.accenture.tagtrainingspring.patient.Gender;
 import com.accenture.tagtrainingspring.patient.Patient;
 import com.accenture.tagtrainingspring.screening.Screening;
+import com.accenture.tagtrainingspring.screening.ScreeningService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -23,6 +24,15 @@ public class TagTrainingSpringApplication {
 
 		System.out.println("Patient: " + joe.getName() + " has a screening result of: " + screening.isMalignant());
 
+		ScreeningService screeningService = new ScreeningService();
+
+		boolean isScreeningValid = screeningService.checkScreening(screening, joe);
+
+		if (isScreeningValid == true) {
+			System.out.println("Screening matches patient");
+		} else {
+			System.out.println("Screening does not match patient!");
+		}
 	}
 
 	private static void printWelcomeMessage() {
@@ -36,5 +46,7 @@ public class TagTrainingSpringApplication {
 				"                                                        __/ |\n" +
 				"                                                       |___/ \n");
 	}
+
+
 
 }

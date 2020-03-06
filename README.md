@@ -40,6 +40,7 @@ Watch the below videos before you attempt the first task:
 * [Packages] - Classes are stored in packages. They help to logically organize our code.
 * [Variables] - Variables are used in all programming languages to store data.
 * [Classes] - Classes are a how we represent our data.
+* [Initializing Classes] - How to create a new object.
 * [Methods] - These allow us to perform operations on our classes.
 * [Strings] - Strings represent sentences and allow us to represent information.
 
@@ -90,7 +91,6 @@ With the app up and running, we can now write some basic code. In our project, w
 * Date's can be represented using the ```LocalDate``` type.
 * Gender can be easily represented using [Enums]
 * Constructors, getters and setters can be automatically [generated] by Intellij to save a lot of typing!
----
 
 [What is Git]: <https://app.pluralsight.com/course-player?clipId=3fd2f988-28c6-4cbb-8851-94de23080b51>
 [Create a GitHub Account]: <https://app.pluralsight.com/course-player?clipId=0fba4e77-ad72-405f-bb1e-042a6de673cc>
@@ -101,6 +101,7 @@ With the app up and running, we can now write some basic code. In our project, w
 [Creating a Basic Intellij Java Project]: <https://app.pluralsight.com/course-player?clipId=7e4f3268-9649-4891-bfe1-58764e5e11e9>
 [Variables]: <https://app.pluralsight.com/course-player?clipId=11a5bc5d-1099-43c5-b773-43045ed9bf0e>
 [Classes]: <https://app.pluralsight.com/course-player?clipId=6643ae8b-28b6-41fb-bba4-569ef4731e36>
+[Initializing Classes]: <https://app.pluralsight.com/course-player?clipId=3e20bd6d-313e-457a-9d32-50a7b07fa095> 
 [Methods]: <https://app.pluralsight.com/course-player?clipId=749e618f-c96d-4bd4-b189-40de5ace3cc2>
 [Strings]: <https://app.pluralsight.com/course-player?clipId=51951ff1-78df-4253-841d-7e8fe9e5fc8c>
 [Git for Windows]: <https://git-scm.com/download/win>
@@ -109,3 +110,49 @@ With the app up and running, we can now write some basic code. In our project, w
 [Naming]: <https://www.javatpoint.com/java-naming-conventions>
 [Enums]: <https://app.pluralsight.com/course-player?clipId=b0f36740-9708-4229-a7cd-ddaaf0ccbf86>
 [generated]: <https://www.jetbrains.com/help/idea/generating-code.html>
+---
+## Day 2
+
+### Overview
+
+Yesterday we focused on creating classes with some fields to hold our data. Today we will be exploring more of the features that Java provides to do some cool stuff with our classes. Some of these features we'll cover include:
+  - **Conditional Logic** also known as if-else statements are used to make decisions if something is true or false. 
+  - **Loops** give us the ability to iterate over these arrays and other collections to perform operations on them.
+  - **Arrays** allow us to store multiple objects together.
+  - **Methods** are a core part of classes in Java. They allow us to perform operations on our objects. 
+
+### Pluralsight
+
+Again, watch the below videos before you attempt the first task:
+
+* [Conditional Logic] - What is conditional logic in Java.
+* [If-Else Statements] - Most commonly used way of making decisions in Java.
+* [Logical Operators] - We use logical operators to make decisions in our conditional logic. i.e. is 1 == 1, true.
+* [Switch] - Similiar to an if-else statement, but more appropiate in certain contexts. 
+* [Arrays] - Way of storing multiple objects in a group.
+* [Lists] - A type of collection similiar to an array. What we'd normally use as they're easier to work with than arrays.
+* [Loops] - How to loop over a list of objects.
+
+### Tasks
+
+Again, we'll be applying some of what we've learnt in the above videos to our project. What we want to do today is add some verifications to make sure there aren't any mistakes in our logic. Below are a number of tasks that will make things watertight:
+
+#### Task 1
+1. First things first, check your project from yesterday is still working!
+2. Create a new class called ```ScreeningService``` in the service package.
+    1. Give the class a default constructor.
+    2. Add a method in the new class that accepts a ```Screening``` & ```Patient``` as parameters. The method should return true or false depending on if the screening is for the specified patient.
+3. In your main class, instantiate the ```ScreeningSerivce```. 
+4. Pass in a screening and patient and capture the result. With the result, print a message stating wheter the screening matches the patient or not.
+
+[Conditional Logic]: <https://app.pluralsight.com/course-player?clipId=08c83d54-1d3e-456a-b122-cb3673f607b3>
+[If-Else Statements]: <https://app.pluralsight.com/course-player?clipId=a8930d13-7598-4dd4-b2c6-6b7b0af0f90a3>
+[Logical Operators]: <https://app.pluralsight.com/course-player?clipId=967235c1-a424-41a4-9918-f9646086ee10>
+[Switch]: <https://app.pluralsight.com/course-player?clipId=25d15753-fb1b-4fe8-a8e6-38224b46dab8>
+[Loops]: <https://app.pluralsight.com/course-player?clipId=3ba624b3-c92c-448c-b7ee-c049d6efaf56>
+[Arrays]: <https://app.pluralsight.com/course-player?clipId=03ae8d9a-388d-4b66-a5e3-d07ea816ea33>
+[Lists]: <https://www.geeksforgeeks.org/list-interface-java-examples/>
+
+
+
+
