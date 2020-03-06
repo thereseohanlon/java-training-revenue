@@ -133,6 +133,8 @@ Again, watch the below videos before you attempt the first task:
 * [Lists] - A type of collection similiar to an array but with additional functions.
 * [Loops] - How to loop over a list of objects.
 * [For-each Loop] - Handy way of looping over objects.
+* [Equality] - For when you're trying to find a match between two objects.
+* [Null] - Objects that have no data are null.
 
 ### Tasks
 
@@ -149,8 +151,19 @@ Again, we'll be applying some of what we've learnt in the above videos to our pr
 #### Task 2
 1. Create a few new ```Patient``` objects 
 2. Also create a few corresponding ```Screening``` objects for each patient.
-3. Create a ```List``` of screenings and add each patient to that list.
+3. Create a ```List``` of screenings and add each screening to that list.
 4. Using a loop, iterate over the list of screenings and print out the patients name and their screening result (like below).
+
+#### Task 3
+Now we're going to clean up our code by moving what we've written so far into seperate classes. 
+1. Start by creating a ```ScreeningDatabase``` class to hold all our ```Patients``` and ```Screenings```. 
+2. Add a new public method to this class to return a list of all the screenings.
+3. Update the ```ScreeningService``` class and its constructor to take a ```ScreeningDatabase``` as an argument. Assign it to the class. 
+5. Finally, add a third method to the ```ScreeningService``` to print the result of a screening.
+6. In your main class, create a new ```ScreeningDatabase``` object and pass it into the ```ScreeningService```.
+7. Update your existing screening list to now fetch all the screenings from this service.
+8. Update the ```for-each loop``` to now call the ```ScreeningService``` to print the result. 
+9. Remove any redundant code and check everything works the same way that it did in **Task 2**.
 
 ```sh
 Screening for patient Joe, returned a malignant result of false
@@ -160,6 +173,12 @@ Screening for patient Cathy, returned a malignant result of true
 Screening for patient Bob, returned a malignant result of false
 ```
 
+**Extra points**
+If you've finished the above, congrats! Here's one last challenge:
+1. Add a second method to the ```ScreeningService``` class that takes a name, loops over all the screenings and returns the matching ```Screening```. If no match is found, return null.
+2. In your main class, call this new method to get a ```Screening``` back for a name.
+3. If the ```Screening``` you get back is not null, print the name and the screening result. Else, print a message stating that no screening was found.
+
 [Conditional Logic]: <https://app.pluralsight.com/course-player?clipId=08c83d54-1d3e-456a-b122-cb3673f607b3>
 [If-Else Statements]: <https://app.pluralsight.com/course-player?clipId=a8930d13-7598-4dd4-b2c6-6b7b0af0f90a3>
 [Logical Operators]: <https://app.pluralsight.com/course-player?clipId=967235c1-a424-41a4-9918-f9646086ee10>
@@ -168,3 +187,5 @@ Screening for patient Bob, returned a malignant result of false
 [Arrays]: <https://app.pluralsight.com/course-player?clipId=03ae8d9a-388d-4b66-a5e3-d07ea816ea33>
 [Lists]: <https://www.geeksforgeeks.org/list-interface-java-examples/>
 [For-each Loop]: <https://app.pluralsight.com/course-player?clipId=212fb6c9-95bd-4f6b-8a26-11057209fae0>
+[Equality]: <https://app.pluralsight.com/course-player?clipId=f2819dd2-aff3-4151-b518-4c0567420bec>
+[Null]: <https://app.pluralsight.com/course-player?clipId=c7af73fd-11f5-4f01-910e-e1b26c3e6268>
