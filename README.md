@@ -130,12 +130,13 @@ Again, watch the below videos before you attempt the first task:
 * [Logical Operators] - We use logical operators to make decisions in our conditional logic. i.e. is 1 == 1, true.
 * [Switch] - Similiar to an if-else statement, but more appropiate in certain contexts. 
 * [Arrays] - Way of storing multiple objects in a group.
-* [Lists] - A type of collection similiar to an array. What we'd normally use as they're easier to work with than arrays.
+* [Lists] - A type of collection similiar to an array but with additional functions.
 * [Loops] - How to loop over a list of objects.
+* [For-each Loop] - Handy way of looping over objects.
 
 ### Tasks
 
-Again, we'll be applying some of what we've learnt in the above videos to our project. What we want to do today is add some verifications to make sure there aren't any mistakes in our logic. Below are a number of tasks that will make things watertight:
+Again, we'll be applying some of what we've learnt in the above videos to our project. What we want to do today is add some verifications to make sure there aren't any mistakes in our logic. We can do this using conditional logic. We also want to leverage the power of collections so that we can process multiple objects, such as a list of screenings.
 
 #### Task 1
 1. First things first, check your project from yesterday is still working!
@@ -145,6 +146,20 @@ Again, we'll be applying some of what we've learnt in the above videos to our pr
 3. In your main class, instantiate the ```ScreeningSerivce```. 
 4. Pass in a screening and patient and capture the result. With the result, print a message stating wheter the screening matches the patient or not.
 
+#### Task 2
+1. Create a few new ```Patient``` objects 
+2. Also create a few corresponding ```Screening``` objects for each patient.
+3. Create a ```List``` of screenings and add each patient to that list.
+4. Using a loop, iterate over the list of screenings and print out the patients name and their screening result (like below).
+
+```sh
+Screening for patient Joe, returned a malignant result of false
+Screening for patient Debbie, returned a malignant result of false
+Screening for patient John, returned a malignant result of true
+Screening for patient Cathy, returned a malignant result of true
+Screening for patient Bob, returned a malignant result of false
+```
+
 [Conditional Logic]: <https://app.pluralsight.com/course-player?clipId=08c83d54-1d3e-456a-b122-cb3673f607b3>
 [If-Else Statements]: <https://app.pluralsight.com/course-player?clipId=a8930d13-7598-4dd4-b2c6-6b7b0af0f90a3>
 [Logical Operators]: <https://app.pluralsight.com/course-player?clipId=967235c1-a424-41a4-9918-f9646086ee10>
@@ -152,7 +167,4 @@ Again, we'll be applying some of what we've learnt in the above videos to our pr
 [Loops]: <https://app.pluralsight.com/course-player?clipId=3ba624b3-c92c-448c-b7ee-c049d6efaf56>
 [Arrays]: <https://app.pluralsight.com/course-player?clipId=03ae8d9a-388d-4b66-a5e3-d07ea816ea33>
 [Lists]: <https://www.geeksforgeeks.org/list-interface-java-examples/>
-
-
-
-
+[For-each Loop]: <https://app.pluralsight.com/course-player?clipId=212fb6c9-95bd-4f6b-8a26-11057209fae0>
