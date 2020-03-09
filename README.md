@@ -125,7 +125,7 @@ Yesterday we focused on creating classes with some fields to hold our data. Toda
 
 Again, watch the below videos before you attempt the first task:
 
-* [Conditional Logic] - What is conditional logic in Java.
+* [Conditional Logic][conditional_logic] - What is conditional logic in Java.
 * [If-Else Statements] - Most commonly used way of making decisions in Java.
 * [Logical Operators] - We use logical operators to make decisions in our conditional logic. i.e. is 1 == 1, true.
 * [Switch] - Similiar to an if-else statement, but more appropiate in certain contexts. 
@@ -179,7 +179,8 @@ If you've finished the above, congrats! Here's one last challenge:
 2. In your main class, call this new method to get a ```Screening``` back for a name.
 3. If the ```Screening``` you get back is not null, print the name and the screening result. Else, print a message stating that no screening was found.
 
-[Conditional Logic]: <https://app.pluralsight.com/course-player?clipId=08c83d54-1d3e-456a-b122-cb3673f607b3>
+
+[conditional_logic]: <https://app.pluralsight.com/course-player?clipId=08c83d54-1d3e-456a-b122-cb3673f607b3>
 [If-Else Statements]: <https://app.pluralsight.com/course-player?clipId=a8930d13-7598-4dd4-b2c6-6b7b0af0f90a3>
 [Logical Operators]: <https://app.pluralsight.com/course-player?clipId=967235c1-a424-41a4-9918-f9646086ee10>
 [Switch]: <https://app.pluralsight.com/course-player?clipId=25d15753-fb1b-4fe8-a8e6-38224b46dab8>
