@@ -6,7 +6,7 @@ Sounds exciting!
 
 This course is perfect for complete **Java newbie's**. If you have previous experience in development, this will act as a great refresher. If not, we'll get you up to speed on the basics of how a Java app works. Each day you'll perform a number of **tasks** to build the application. Before you start a task, you should watch the **Pluralsight** videos listed to give you a bit of background and help you complete the task. 
 
-Some of the things we'll cover:   
+Some of the things we'll cover:
 
   - Setting up you development environment.
   - Working with Git to clone, commit, push and merge.
@@ -136,10 +136,19 @@ Again, watch the below videos before you attempt the first task:
 * [For-each Loop][for_each_loop] - Handy way of looping over objects.
 * [Equality][equality] - For when you're trying to find a match between two objects.
 * [Null][null] - Objects that have no data are null.
+* [Spring Intro][spring_intro] - Watch this section of videos to get an idea of what Spring is and why we use it.
+* [REST API][what_is_rest] - REST is what we use to send and recieve information. In our case it will be screening results.
+* [Spring REST][spring_rest] - Here's how to do it in Spring!
+* [Autowring][autowiring] and a short [demo][autowiring_demo] - The spring framework comes with handy Java annotations that reduce the amount of code we need to write. 
+* [Spring Annotations][list_of_annotations] - Bit of background on the annotations we will use. In paticular, ```@Autowired```, ```@Service``` and ```@RequestMapping```. 
 
 ### Tasks
 
-Again, we'll be applying some of what we've learnt in the above videos to our project. What we want to do today is add some verifications to make sure there aren't any mistakes in our logic. We can do this using conditional logic. We also want to leverage the power of collections so that we can process multiple objects, such as a list of screenings.
+Again, we'll be applying some of what we've learnt in the above videos to our project. What we want to do today is add some verifications to make sure there aren't any mistakes in our logic. We can do this using conditional logic. We also want to leverage the power of collections so that we can process multiple objects, such as a list of screenings. 
+
+Finally, we're going to add **Spring** to our project! This will allow us to make requests to our app from our browser to get information, or resources. This is know as a REST API Again, there's a lot going on under the hood with Spring but we'll just be wiring up the basics. Spring is designed to be very easy to work with and provides a number of **annotations**. These are single lines of code which do a lot of work for us. 
+
+Let's start...
 
 #### Task 1
 1. First things first, check your project from yesterday is still working!
@@ -180,6 +189,24 @@ If you've finished the above, congrats! Here's one last challenge:
 2. In your main class, call this new method to get a ```Screening``` back for a name.
 3. If the ```Screening``` you get back is not null, print the name and the screening result. Else, print a message stating that no screening was found.
 
+#### Task 4
+Finally, we're going to leverage **Spring** to Autowire our Service and Database classes! This mean that we no longer use the ```new``` keyword to create our utility classes, such as the database. Instead, Spring makes them available to us to use on-demand. These are called **beans** (for some reason). 
+
+However, we have to first do a little bit of prep work to our code. This will allow us to fully leverage Spring and to start making requests from our browser. Our first task is to create a controller. This will take requests from our web browser and gives us back a result. In our case we want to get a screening result for a patient.
+
+Let's begin...
+
+1. In the screening package, create a new ```ScreeningController``` class. Annotate it with ```@RestController```. 
+2. Update the ```ScreeningDatabase``` class to be a bean by adding the ```@Component``` annotation.  
+3. Autowire the ```ScreeningDatabase``` into the ```ScreeningService``` class, removing previous references to ```new```. 
+4. Update the ```ScreeningService``` to itself be a service bean using the ```@Service``` annotation. 
+5. Now, autowire the ```ScreeningService``` into the new ```ScreeningController```.
+6. Now add a new method to the ```ScreeningController``` called _getScreening_. This method should take a String as a name, annotated with the ```@RequestParam``` annotation, and return a String result.
+7. Cut the code from the main class we previously wrote and put it here. The main class should now be empty, except for the line ```SpringApplication.run(TagTraining...``` which initializes our whole app. What we want to do in this method is to simply get the screening for a name we pass in from our browser from our service. Then instead of printing the result, simply returning it. This means then result will then display on our browser.
+8. Add the ```@RequestMapping("/screening")``` annotation to give ourselves a path to our new method. This will be the route to call the controller which Spring will map to.  
+9. Run the Spring app and test it out! Try hitting ```http://localhost:8080/screening?name=Joe``` and the result for Joe should appear in the browser.
+
+![Alt text](https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/static/images/spring_rest_screening.png?at=refs%2Fheads%2Fday_2)
 
 [conditional_logic]: <https://app.pluralsight.com/course-player?clipId=08c83d54-1d3e-456a-b122-cb3673f607b3>
 [if_else_statements]: <https://app.pluralsight.com/course-player?clipId=a8930d13-7598-4dd4-b2c6-6b7b0af0f90a3>
@@ -191,3 +218,10 @@ If you've finished the above, congrats! Here's one last challenge:
 [for_each_loop]: <https://app.pluralsight.com/course-player?clipId=212fb6c9-95bd-4f6b-8a26-11057209fae0>
 [equality]: <https://app.pluralsight.com/course-player?clipId=f2819dd2-aff3-4151-b518-4c0567420bec>
 [null]: <https://app.pluralsight.com/course-player?clipId=c7af73fd-11f5-4f01-910e-e1b26c3e6268>
+[spring_intro]: <https://app.pluralsight.com/course-player?clipId=e8197f0f-d207-463f-aca4-7eeb975f30b2>
+[what_is_rest]: <https://app.pluralsight.com/player?course=rest-fundamentals&author=howard-dierking&name=rest-m1-intro&clip=1&mode=live>
+[spring_rest]: <https://spring.io/guides/gs/rest-service/>
+[autowiring]: <https://app.pluralsight.com/course-player?clipId=e3e71c50-7283-4788-a62f-392a5ef9dfb4>
+[autowiring_demo]: <https://app.pluralsight.com/course-player?clipId=aa960afc-3bf1-4ed8-bcab-d7f9ab52500f>
+[list_of_annotations]: <https://springframework.guru/spring-framework-annotations/>
+
