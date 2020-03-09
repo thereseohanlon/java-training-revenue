@@ -30,19 +30,19 @@ Some of the tools we'll be using today include:
 
 Watch the below videos before you attempt the first task:
 
-* [What is Git] - Overview of what Git is and why we use it.
-* [Git Hipster Analogy] - Another way to think about version control systems.
-* [Create a GitHub Account] - Set yourself up with a brand new Github account (If you already have one, great!). 
-* [Basic Git Commands] - Basics such as clone, push, pull & branch which you'll need.
-* [What is Java] - Overview of Java.
-* [JRE & JDK] - A bit more background on Java. Good to know...
-* [Creating a Basic Intellij Java Project] - Another nice to know to get you familiar with Intellij. We'll be importing our project however.
-* [Packages] - Classes are stored in packages. They help to logically organize our code.
-* [Variables] - Variables are used in all programming languages to store data.
-* [Classes] - Classes are a how we represent our data.
-* [Initializing Classes] - How to create a new object.
-* [Methods] - These allow us to perform operations on our classes.
-* [Strings] - Strings represent sentences and allow us to represent information.
+* [What is Git][what_is_git] - Overview of what Git is and why we use it.
+* [Git Hipster Analogy][git_hipster_analogy] - Another way to think about version control systems.
+* [Create a GitHub Account][create_a_github_account] - Set yourself up with a brand new Github account (If you already have one, great!). 
+* [Basic Git Commands][basic_git_commands] - Basics such as clone, push, pull & branch which you'll need.
+* [What is Java][what_is_java] - Overview of Java.
+* [JRE & JDK][jre_and_jdk] - A bit more background on Java. Good to know...
+* [Creating a Basic Intellij Java Project][creating_a_basic_intellij_java_Project] - Another nice to know to get you familiar with Intellij. We'll be importing our project however.
+* [Packages][packages] - Classes are stored in packages. They help to logically organize our code.
+* [Variables][variables] - Variables are used in all programming languages to store data.
+* [Classes][classes] - Classes are a how we represent our data.
+* [Initializing Classes][initializing_classes] - How to create a new object.
+* [Methods][methods] - These allow us to perform operations on our classes.
+* [Strings][strings] - Strings represent sentences and allow us to represent information.
 
 ### Tasks
 
@@ -92,23 +92,23 @@ With the app up and running, we can now write some basic code. In our project, w
 * Gender can be easily represented using [Enums]
 * Constructors, getters and setters can be automatically [generated] by Intellij to save a lot of typing!
 
-[What is Git]: <https://app.pluralsight.com/course-player?clipId=3fd2f988-28c6-4cbb-8851-94de23080b51>
-[Create a GitHub Account]: <https://app.pluralsight.com/course-player?clipId=0fba4e77-ad72-405f-bb1e-042a6de673cc>
-[Git Hipster Analogy]: <https://app.pluralsight.com/course-player?clipId=e9ff6152-e93f-4b08-89eb-3788cf4d58ce>
-[Basic Git Commands]: <https://app.pluralsight.com/course-player?clipId=acfe96df-3bb7-49a7-8054-9e3d72e2c638>
-[What is Java]: <https://app.pluralsight.com/course-player?clipId=f7a9fd0c-1ee8-4628-b21c-ef5a3d246f72>
-[JRE & JDK]: <https://app.pluralsight.com/course-player?clipId=da83e7db-4c5e-4307-aad5-0826861155e2>
-[Creating a Basic Intellij Java Project]: <https://app.pluralsight.com/course-player?clipId=7e4f3268-9649-4891-bfe1-58764e5e11e9>
-[Variables]: <https://app.pluralsight.com/course-player?clipId=11a5bc5d-1099-43c5-b773-43045ed9bf0e>
-[Classes]: <https://app.pluralsight.com/course-player?clipId=6643ae8b-28b6-41fb-bba4-569ef4731e36>
-[Initializing Classes]: <https://app.pluralsight.com/course-player?clipId=3e20bd6d-313e-457a-9d32-50a7b07fa095> 
-[Methods]: <https://app.pluralsight.com/course-player?clipId=749e618f-c96d-4bd4-b189-40de5ace3cc2>
-[Strings]: <https://app.pluralsight.com/course-player?clipId=51951ff1-78df-4253-841d-7e8fe9e5fc8c>
-[Git for Windows]: <https://git-scm.com/download/win>
-[Packages]: <https://app.pluralsight.com/course-player?clipId=19f914da-1abe-47dd-baf7-6018d4a14e07>
-[LocalDate]: <http://tutorials.jenkov.com/java-date-time/localdate.html>
-[Naming]: <https://www.javatpoint.com/java-naming-conventions>
-[Enums]: <https://app.pluralsight.com/course-player?clipId=b0f36740-9708-4229-a7cd-ddaaf0ccbf86>
+[what_is_git]: <https://app.pluralsight.com/course-player?clipId=3fd2f988-28c6-4cbb-8851-94de23080b51>
+[git_hipster_analogy]: <https://app.pluralsight.com/course-player?clipId=e9ff6152-e93f-4b08-89eb-3788cf4d58ce>
+[create_a_github_account]: <https://app.pluralsight.com/course-player?clipId=0fba4e77-ad72-405f-bb1e-042a6de673cc>
+[basic_git_commands]: <https://app.pluralsight.com/course-player?clipId=acfe96df-3bb7-49a7-8054-9e3d72e2c638>
+[what_is_java]: <https://app.pluralsight.com/course-player?clipId=f7a9fd0c-1ee8-4628-b21c-ef5a3d246f72>
+[jre_and_jdk]: <https://app.pluralsight.com/course-player?clipId=da83e7db-4c5e-4307-aad5-0826861155e2>
+[creating_a_basic_intellij_java_Project]: <https://app.pluralsight.com/course-player?clipId=7e4f3268-9649-4891-bfe1-58764e5e11e9>
+[variables]: <https://app.pluralsight.com/course-player?clipId=11a5bc5d-1099-43c5-b773-43045ed9bf0e>
+[classes]: <https://app.pluralsight.com/course-player?clipId=6643ae8b-28b6-41fb-bba4-569ef4731e36>
+[initializing_classes]: <https://app.pluralsight.com/course-player?clipId=3e20bd6d-313e-457a-9d32-50a7b07fa095> 
+[methods]: <https://app.pluralsight.com/course-player?clipId=749e618f-c96d-4bd4-b189-40de5ace3cc2>
+[strings]: <https://app.pluralsight.com/course-player?clipId=51951ff1-78df-4253-841d-7e8fe9e5fc8c>
+[git_for_windows]: <https://git-scm.com/download/win>
+[packages]: <https://app.pluralsight.com/course-player?clipId=19f914da-1abe-47dd-baf7-6018d4a14e07>
+[localdate]: <http://tutorials.jenkov.com/java-date-time/localdate.html>
+[naming]: <https://www.javatpoint.com/java-naming-conventions>
+[enums]: <https://app.pluralsight.com/course-player?clipId=b0f36740-9708-4229-a7cd-ddaaf0ccbf86>
 [generated]: <https://www.jetbrains.com/help/idea/generating-code.html>
 ---
 ## Day 2
@@ -126,15 +126,15 @@ Yesterday we focused on creating classes with some fields to hold our data. Toda
 Again, watch the below videos before you attempt the first task:
 
 * [Conditional Logic][conditional_logic] - What is conditional logic in Java.
-* [If-Else Statements] - Most commonly used way of making decisions in Java.
-* [Logical Operators] - We use logical operators to make decisions in our conditional logic. i.e. is 1 == 1, true.
-* [Switch] - Similiar to an if-else statement, but more appropiate in certain contexts. 
-* [Arrays] - Way of storing multiple objects in a group.
-* [Lists] - A type of collection similiar to an array but with additional functions.
-* [Loops] - How to loop over a list of objects.
-* [For-each Loop] - Handy way of looping over objects.
-* [Equality] - For when you're trying to find a match between two objects.
-* [Null] - Objects that have no data are null.
+* [If-Else Statements][if_else_statements] - Most commonly used way of making decisions in Java.
+* [Logical Operators][logical_operators] - We use logical operators to make decisions in our conditional logic. i.e. is 1 == 1, true.
+* [Switch][switch] - Similiar to an if-else statement, but more appropiate in certain contexts. 
+* [Arrays][arrays] - Way of storing multiple objects in a group.
+* [Lists][lists] - A type of collection similiar to an array but with additional functions.
+* [Loops][loops] - How to loop over a list of objects.
+* [For-each Loop][for_each_loop] - Handy way of looping over objects.
+* [Equality][equality] - For when you're trying to find a match between two objects.
+* [Null][null] - Objects that have no data are null.
 
 ### Tasks
 
@@ -179,14 +179,13 @@ If you've finished the above, congrats! Here's one last challenge:
 2. In your main class, call this new method to get a ```Screening``` back for a name.
 3. If the ```Screening``` you get back is not null, print the name and the screening result. Else, print a message stating that no screening was found.
 
-
 [conditional_logic]: <https://app.pluralsight.com/course-player?clipId=08c83d54-1d3e-456a-b122-cb3673f607b3>
-[If-Else Statements]: <https://app.pluralsight.com/course-player?clipId=a8930d13-7598-4dd4-b2c6-6b7b0af0f90a3>
-[Logical Operators]: <https://app.pluralsight.com/course-player?clipId=967235c1-a424-41a4-9918-f9646086ee10>
-[Switch]: <https://app.pluralsight.com/course-player?clipId=25d15753-fb1b-4fe8-a8e6-38224b46dab8>
-[Loops]: <https://app.pluralsight.com/course-player?clipId=3ba624b3-c92c-448c-b7ee-c049d6efaf56>
-[Arrays]: <https://app.pluralsight.com/course-player?clipId=03ae8d9a-388d-4b66-a5e3-d07ea816ea33>
-[Lists]: <https://www.geeksforgeeks.org/list-interface-java-examples/>
-[For-each Loop]: <https://app.pluralsight.com/course-player?clipId=212fb6c9-95bd-4f6b-8a26-11057209fae0>
-[Equality]: <https://app.pluralsight.com/course-player?clipId=f2819dd2-aff3-4151-b518-4c0567420bec>
-[Null]: <https://app.pluralsight.com/course-player?clipId=c7af73fd-11f5-4f01-910e-e1b26c3e6268>
+[if_else_statements]: <https://app.pluralsight.com/course-player?clipId=a8930d13-7598-4dd4-b2c6-6b7b0af0f90a3>
+[logical_operators]: <https://app.pluralsight.com/course-player?clipId=967235c1-a424-41a4-9918-f9646086ee10>
+[switch]: <https://app.pluralsight.com/course-player?clipId=25d15753-fb1b-4fe8-a8e6-38224b46dab8>
+[lists]: <https://www.geeksforgeeks.org/list-interface-java-examples/>
+[loops]: <https://app.pluralsight.com/course-player?clipId=3ba624b3-c92c-448c-b7ee-c049d6efaf56>
+[arrays]: <https://app.pluralsight.com/course-player?clipId=03ae8d9a-388d-4b66-a5e3-d07ea816ea33>
+[for_each_loop]: <https://app.pluralsight.com/course-player?clipId=212fb6c9-95bd-4f6b-8a26-11057209fae0>
+[equality]: <https://app.pluralsight.com/course-player?clipId=f2819dd2-aff3-4151-b518-4c0567420bec>
+[null]: <https://app.pluralsight.com/course-player?clipId=c7af73fd-11f5-4f01-910e-e1b26c3e6268>
