@@ -108,8 +108,9 @@ With the app up and running, we can now write some basic code. In our project, w
 [packages]: <https://app.pluralsight.com/course-player?clipId=19f914da-1abe-47dd-baf7-6018d4a14e07>
 [localdate]: <http://tutorials.jenkov.com/java-date-time/localdate.html>
 [naming]: <https://www.javatpoint.com/java-naming-conventions>
-[enums]: <https://app.pluralsight.com/course-player?clipId=b0f36740-9708-4229-a7cd-ddaaf0ccbf86>
 [generated]: <https://www.jetbrains.com/help/idea/generating-code.html>
+[enums]: <https://app.pluralsight.com/course-player?clipId=b0f36740-9708-4229-a7cd-ddaaf0ccbf86>
+
 ---
 ## Day 2
 
@@ -178,6 +179,7 @@ If you've finished the above, congrats! Here's one last challenge:
 1. Add a second method to the ```ScreeningService``` class that takes a name, loops over all the screenings and returns the matching ```Screening```. If no match is found, return null.
 2. In your main class, call this new method to get a ```Screening``` back for a name.
 3. If the ```Screening``` you get back is not null, print the name and the screening result. Else, print a message stating that no screening was found.
+
 
 [conditional_logic]: <https://app.pluralsight.com/course-player?clipId=08c83d54-1d3e-456a-b122-cb3673f607b3>
 [if_else_statements]: <https://app.pluralsight.com/course-player?clipId=a8930d13-7598-4dd4-b2c6-6b7b0af0f90a3>
