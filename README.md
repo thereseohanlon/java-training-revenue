@@ -206,8 +206,6 @@ Let's begin...
 8. Add the ```@RequestMapping("/screening")``` annotation to give ourselves a path to our new method. This will be the route to call the controller which Spring will map to.  
 9. Run the Spring app and test it out! Try hitting ```http://localhost:8080/screening?name=Joe``` and the result for Joe should appear in the browser.
 
-![Alt text](https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/static/images/spring_rest_screening.png?at=refs%2Fheads%2Fday_2)
-
 [conditional_logic]: <https://app.pluralsight.com/course-player?clipId=08c83d54-1d3e-456a-b122-cb3673f607b3>
 [if_else_statements]: <https://app.pluralsight.com/course-player?clipId=a8930d13-7598-4dd4-b2c6-6b7b0af0f90a3>
 [logical_operators]: <https://app.pluralsight.com/course-player?clipId=967235c1-a424-41a4-9918-f9646086ee10>
