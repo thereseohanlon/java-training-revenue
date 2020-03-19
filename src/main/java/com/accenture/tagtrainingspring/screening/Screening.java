@@ -1,45 +1,76 @@
 package com.accenture.tagtrainingspring.screening;
 
-import com.accenture.tagtrainingspring.patient.Patient;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.time.LocalDate;
-
+@Getter
+@Setter
 public class Screening {
 
-    private Patient patient;
+    private int id;
 
-    private LocalDate screeningDate;
+    private char diagnosis;
 
-    private boolean malignant;
+    private double radiusMean;
 
-    public Screening(Patient patient, LocalDate screeningDate, boolean malignant) {
-        this.patient = patient;
-        this.screeningDate = screeningDate;
-        this.malignant = malignant;
-    }
+    private double textureMean;
 
-    public Patient getPatient() {
-        return patient;
-    }
+    private double perimeterMean;
 
-    public void setPatientId(Patient patient) {
-        this.patient = patient;
-    }
+    private double areaMean;
 
-    public LocalDate getScreeningDate() {
-        return screeningDate;
-    }
+    private double smoothnessMean;
 
-    public void setScreeningDate(LocalDate screeningDate) {
-        this.screeningDate = screeningDate;
-    }
+    private double compactnessMean;
 
-    public boolean isMalignant() {
-        return malignant;
-    }
+    private double concavityMean;
 
-    public void setMalignant(boolean malignant) {
-        this.malignant = malignant;
-    }
+    private double concavePointsMean;
+
+    private double symmetryMean;
+
+    private double fractalDimensionMean;
+
+    private double radiusSe;
+
+    private double textureSe;
+
+    private double perimeterSe;
+
+    private double areaSe;
+
+    private double smoothnessSe;
+
+    private double compactnessSe;
+
+    private double concavitySe;
+
+    private double concavePointsSe;
+
+    private double symmetrySe;
+
+    private double fractalDimensionSe;
+
+    private double radiusWorst;
+
+    private double textureWorst;
+
+    private double perimeterWorst;
+
+    private double areaWorst;
+
+    private double smoothnessWorst;
+
+    private double compactnessWorst;
+
+    private double concavityWorst;
+
+    private double concavePointsWorst;
+
+    private double symmetryWorst;
+
+    private double fractalDimensionWorst;
+
+    private char groupId;
 
 }

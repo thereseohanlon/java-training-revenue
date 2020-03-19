@@ -19,18 +19,7 @@ public class ScreeningDatabase {
         Patient cathy = new Patient(84358402, "Cathy", LocalDate.of(1968, Month.DECEMBER, 29), Gender.FEMALE);
         Patient bob = new Patient(84501001, "Bob", LocalDate.of(1957, Month.APRIL, 1), Gender.MALE);
 
-//        Screening screening1 = new Screening(joe, LocalDate.now(), false);
-//        Screening screening2 = new Screening(debbie, LocalDate.now(), false);
-//        Screening screening3 = new Screening(john, LocalDate.now(), true);
-//        Screening screening4 = new Screening(cathy, LocalDate.now(), true);
-//        Screening screening5 = new Screening(bob, LocalDate.now(), false);
-
         List<Screening> screenings = new ArrayList<>();
-//        screenings.add(screening1);
-//        screenings.add(screening2);
-//        screenings.add(screening3);
-//        screenings.add(screening4);
-//        screenings.add(screening5);
 
         return screenings;
     }

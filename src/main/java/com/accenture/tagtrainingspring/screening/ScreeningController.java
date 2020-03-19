@@ -12,13 +12,13 @@ public class ScreeningController {
     ScreeningService screeningService;
 
     @RequestMapping("/screening")
-    public String getScreening(@RequestParam String name) {
-        Screening screening = screeningService.getScreening(name);
+    public String getScreening(@RequestParam int id) {
+        Screening screening = screeningService.getScreening(id);
 
         if (screening != null) {
-            return (name + " does have a screening with a result of " + screening.isMalignant());
+            return (id + " does have a screening with a result of " + screening.getDiagnosis());
         } else {
-            return (name + " does not have a screening");
+            return (id + " does not have a screening");
         }
     }
 
