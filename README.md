@@ -6,6 +6,8 @@ Sounds exciting!
 
 This course is perfect for complete **Java newbie's**. If you have previous experience in development, this will act as a great refresher. If not, we'll get you up to speed on the basics of how a Java app works. Each day you'll perform a number of **tasks** to build the application. Before you start a task, you should watch the **Pluralsight** videos listed to give you a bit of background and help you complete the task. 
 
+Link to PluralSight: https://app.pluralsight.com/library/
+
 Some of the things we'll cover:
 
   - Setting up you development environment.
@@ -223,3 +225,58 @@ Let's begin...
 [autowiring_demo]: <https://app.pluralsight.com/course-player?clipId=aa960afc-3bf1-4ed8-bcab-d7f9ab52500f>
 [list_of_annotations]: <https://springframework.guru/spring-framework-annotations/>
 
+---
+## Day 3
+
+### Overview
+For the final day of Java training, well be exploring Spring a bit more and finalising our project. What we want is a system that can take
+
+### Pluralsight
+
+Below are a number of videos to watch.  related to Spring, Maven, HTTP, API's and databases:
+
+* [Maven][what_is_maven] - Maven is what we use to manage dependecies in our project. Lombok is one of these.
+* [Lombok][what_is_lombok] - Lombok reduces the amount of repetivive code we need to write. Such as getters/setters.
+
+#### Task 1
+Our first task will be to add a new class to represent all the data in a malignant cancer screening. As you can see from the [file][malignant_dataset_file] which represents malignant screenings for a number of patients, there are quite a lot of fields we will need in our class! If we where to write a getter/setter for each field, the class would run to 100's of lines. 
+
+To get around this, we can use a code generation tool called [Lombok][project_lombok]. Lombok will create getters/setters on the class at runtime, saving us from having to explicitly write them. Now instead of having a bloated class file, we simply have Lombok do all the work using 2 simple annotations at the top of the class! 
+
+Lets do this now:
+
+1. Install the Lombok plugin for Intellij and enable annotation processing. 
+2. Now add the Lombok dependency to our pom.xml.
+3. In the ```Screening``` class, delete every field and constructor.
+4. Copy the premade fields from [here][result_fields] and paste them as fields into your empty ```Screening``` class.
+5. Now add the Lombok ```@Getter``` and ```@Setter``` annotation to the ```Screening``` class. 
+6. Do the same in the ```Patient``` classes. Delete the existing explicit getters/setters/constructors and add the annotations.
+7. Now we just need to clean up our code to factor in our changes to the ```Screening``` class!
+    * The ```Screening``` class no longer contains a ```Patient``` object. Update the ```Patient``` object to have an ID to match the new id field in the ```Screening``` class.
+    * We deleted the consctructor earlier from the ```Patient``` object. Add a Lombok ```AllArgsConstructor``` annotation to replace it.
+    * Update the ```ScreeningController``` to return the ```diagnosis``` field instead of a boolean.
+    * In the same class, update all reference to the String ```name``` to use an int ```id``` field instead.
+    * Update the ```ScreeningService``` to take the ID for a patient and return the appropriate screening.
+    * In the same class, you can delete the ```checkScreening``` and ```printScreeningResult``` methods.
+    * Finally, update the ```ScreeningDatabase``` patients with id's from the [maliginant dataset file][malignant_dataset_file], i.e *842302*. Also, delete any ```Screening``` objects and just return an empty list for now. We'll be updating this later.
+8. Check if everything builds ok!
+9. Hit the screening endpoint with an id from one of the patients to check if everything works. 
+
+*We don't have any screenings at this point so it should return false.*
+
+Our objects should now be wired with Lombok! The amount of what is called *BoilerPlate* code has been significantly reduced and our classes look much cleaner. Next we need to populate our Screening fields with data! 
+
+We'll do this now in Task 2...
+
+*Hints*
+* We just need to do 2 things to setup [Lombok in Intellij][intellij_lombok]. That is enable annotation processing in settings and add the Lombok plugin for Intellij.  
+* You can find the Maven dependency for lombok here https://mvnrepository.com/artifact/org.projectlombok/lombok/1.18.12. Simply copy and paste this into your dependency section in your pom.xml (Project Object Model) file.
+* You can remove empty constructor from any of our Bean classes.
+* The new screening endpoint should look something like this http://localhost:8080/screening?id=842302
+
+[malignant_dataset_file]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/src/main/resources/malignant_cancer_dataset.csv?at=day_3>
+[project_lombok]: <https://projectlombok.org/>
+[what_is_maven]: <https://app.pluralsight.com/course-player?clipId=b70e1c45-eeb9-4c8b-a87c-ae14e68f2828>
+[what_is_lombok]: <https://www.vogella.com/tutorials/Lombok/article.html>
+[intellij_lombok]: <https://www.baeldung.com/lombok-ide>
+[result_fields]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/files/result_fields?at=refs%2Fheads%2Fday_3>
