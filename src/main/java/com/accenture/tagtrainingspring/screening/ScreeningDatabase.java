@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class ScreeningDatabase {
+public class ScreeningDatabase implements ScreeningDao {
 
     public List<Screening> screeningStore() {
         Patient joe = new Patient(842302, "Joe", LocalDate.of(1901, Month.FEBRUARY, 20), Gender.MALE);
@@ -22,6 +22,16 @@ public class ScreeningDatabase {
         List<Screening> screenings = new ArrayList<>();
 
         return screenings;
+    }
+
+    @Override
+    public Screening get(int patientId) {
+        return null;
+    }
+
+    @Override
+    public List<Screening> get() {
+        return null;
     }
 
 }
