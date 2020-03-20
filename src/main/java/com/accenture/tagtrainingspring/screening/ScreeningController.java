@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class ScreeningController {
 
     @Autowired
-    ScreeningService screeningService;
+    ScreeningDao screeningDao;
 
     @RequestMapping("/screening")
     public String getScreening(@RequestParam int id) {
-        Screening screening = screeningService.getScreening(id);
+        Screening screening = screeningDao.get(id);
 
         if (screening != null) {
             return (id + " does have a screening with a result of " + screening.getDiagnosis());
