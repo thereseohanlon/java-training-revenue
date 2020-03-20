@@ -236,7 +236,12 @@ For the final day of Java training, well be exploring Spring a bit more and fina
 Below are a number of videos to watch.  related to Spring, Maven, HTTP, API's and databases:
 
 * [Maven][what_is_maven] - Maven is what we use to manage dependecies in our project. Lombok is one of these.
-* [Lombok][what_is_lombok] - Lombok reduces the amount of repetivive code we need to write. Such as getters/setters.
+* [Lombok][what_is_lombok] - Lombok reduces the amount of repetivive code we need to write. Such as getters/setters and even constructors.
+* [Design Patterns][design_patterns_intro] - Design patterns are proven coding solutions to common occuring problems in software design. We'll be using the DAO (Data Access Object) pattern to get our Screenings from a database! 
+* [Interfaces][interfaces] - Part of implementing our DAO requires creating an interface. This is like a Java contract which is implemented by our classes.
+* [Intro to Databases/SQL][intro_to_sql] - We'll be writing a small bit of SQL to get data from our local database.
+* [SELECT statements in SQL][sql_select] - SELECTs are used to **GET** the data we want from the database.
+* [INSERTS statements in SQL][sql_insert] - INSERTs are used to add data to a database.
 
 #### Task 1
 Our first task will be to add a new class to represent all the data in a malignant cancer screening. As you can see from the [file][malignant_dataset_file] which represents malignant screenings for a number of patients, there are quite a lot of fields we will need in our class! If we where to write a getter/setter for each field, the class would run to 100's of lines. 
@@ -251,20 +256,18 @@ Lets do this now:
 4. Copy the premade fields from [here][result_fields] and paste them as fields into your empty ```Screening``` class.
 5. Now add the Lombok ```@Getter``` and ```@Setter``` annotation to the ```Screening``` class. 
 6. Do the same in the ```Patient``` classes. Delete the existing explicit getters/setters/constructors and add the annotations.
-7. Now we just need to clean up our code to factor in our changes to the ```Screening``` class!
-    * The ```Screening``` class no longer contains a ```Patient``` object. Update the ```Patient``` object to have an ID to match the new id field in the ```Screening``` class.
-    * We deleted the consctructor earlier from the ```Patient``` object. Add a Lombok ```AllArgsConstructor``` annotation to replace it.
-    * Update the ```ScreeningController``` to return the ```diagnosis``` field instead of a boolean.
-    * In the same class, update all reference to the String ```name``` to use an int ```id``` field instead.
-    * Update the ```ScreeningService``` to take the ID for a patient and return the appropriate screening.
-    * In the same class, you can delete the ```checkScreening``` and ```printScreeningResult``` methods.
-    * Finally, update the ```ScreeningDatabase``` patients with id's from the [maliginant dataset file][malignant_dataset_file], i.e *842302*. Also, delete any ```Screening``` objects and just return an empty list for now. We'll be updating this later.
-8. Check if everything builds ok!
-9. Hit the screening endpoint with an id from one of the patients to check if everything works. 
 
-*We don't have any screenings at this point so it should return false.*
+Now we just need to clean up our code to factor in our changes to the ```Screening``` class!
+1. The ```Screening``` class no longer contains a ```Patient``` object. Update the ```Patient``` object to have an ID to match the new id field in the ```Screening``` class.
+2. We deleted the consctructor earlier from the ```Patient``` object. Add a Lombok ```AllArgsConstructor``` annotation to replace it.
+3. Update the ```ScreeningController``` to return the ```diagnosis``` field instead of a boolean.
+4. In the same class, update all reference to the String ```name``` to use an int ```id``` field instead.
+5. Update the ```ScreeningService``` to take the ID for a patient and return the appropriate screening.
+6. In the same class, you can delete the ```checkScreening``` and ```printScreeningResult``` methods.
+7. Finally, update the ```ScreeningDatabase``` patients with id's from the [maliginant dataset file][malignant_dataset_file], i.e *842302*. Also, delete any ```Screening``` objects and just return an empty list for now. We'll be updating this later.
+8. Check if everything builds ok then hit the screening endpoint with any id. *We don't have any screenings at this point!*
 
-Our objects should now be wired with Lombok! The amount of what is called *BoilerPlate* code has been significantly reduced and our classes look much cleaner. Next we need to populate our Screening fields with data! 
+Our objects should now be wired with Lombok! The amount of what is called *BoilerPlate* code has been significantly reduced and our classes look much cleaner. Next we need to populate our ```Screening``` fields with data! 
 
 We'll do this now in Task 2...
 
@@ -274,9 +277,47 @@ We'll do this now in Task 2...
 * You can remove empty constructor from any of our Bean classes.
 * The new screening endpoint should look something like this http://localhost:8080/screening?id=842302
 
+#### Task 2
+Now we're ready to implement the poulation of screenings from our local database. Running in the background of our Spring app is an in memory database with 100's of [screenings][list_of_sql_screenings]. What we're going to do now is implement a few changes so that we can get this data!
+
+First we need to create our contract for accessing the Screening data from our local database.
+1. Create a new interface ```ScreeningDao``` in the screening package.
+2. Give the interface 2 methods.
+    1. Get a ```Screening``` for a patient id.
+    2. Get all the ```Screenings```.
+3. Have the ```ScreeningDatabase``` implement the ```ScreeningDao```. 
+4. To polish everything off, rename the ```ScreeningDatabase``` to ```ScreeningDaoImpl```.  
+5. Lastly, delete the ```ScreeningSerivce``` and update the references to it to ```ScreeninfDao```where it's referenced in the ```ScreeningContoller```. Also update the method the controller uses to the new interface method to get a single ```Screening```. 
+6. Lastly, lastly, delete the ```screeningStore``` method from our ScreeningDaoImpl. Save the Patient objects as we'll need them later.
+5. Check everything is still working!
+
+Now we're going to write some SQL to get screenings from the local database. 
+1. First autowire the ```JdbcTemplate``` Bean into our ```ScreeningDaoImpl```.
+2. Create a new String to represent an SQL statement to get all the fields from the table *screening_results*.
+3. Add [this][screening_jdbc_all] line to your method which will use the JDBCTemplate to attempt to execute your sql and return a list of ```Screenings```. 
+4. Do the same for a single patient id. Use [this][screening_jdbc_single] Java code to execute your SQL to return just a single ```Screening```.
+5. Update the ```Screening``` with the Lombok ```Data``` annotation. This will allow our Screenings to be represented as strings.
+6. Add a new method to the ```ScreeningController``` to get all screenings. Use the ```toString()``` method to return a String representation of the list of ```Screenings```.
+7. Run the app and check that the endpoints are now working. See last hint for how to test this!
+
+*Hints*
+* Intellij can implement the methods from an interface automatically for you. Click the red ballon after you have added the ```implements ScreeningDao``` line to the ```ScreeningDatabase``` and click *Implement Methods*.
+* To easily rename a class and all it's references in Intellij, right click the class in the Project menu and click refactor -> rename.
+* The ```ScreeningRowMapper```  maps the SQL screening to our Java ```Screening``` objects.
+* Give the ```RequestMapping``` for getting all screenings a different value else Spring will complain.
+* Try a patient id that does exist and one that does not. You should get an error for the one that does not esixt. This is an exception. We can handle this later. Also try the endpoint to get all Screenings. It should return every ```Screening``` from the database as it's string representation.
+
 [malignant_dataset_file]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/src/main/resources/malignant_cancer_dataset.csv?at=day_3>
 [project_lombok]: <https://projectlombok.org/>
+[design_patterns_intro]: <https://app.pluralsight.com/player?course=patterns-library&author=david-starr&name=pattern-introduction&clip=1&mode=live>
 [what_is_maven]: <https://app.pluralsight.com/course-player?clipId=b70e1c45-eeb9-4c8b-a87c-ae14e68f2828>
 [what_is_lombok]: <https://www.vogella.com/tutorials/Lombok/article.html>
 [intellij_lombok]: <https://www.baeldung.com/lombok-ide>
 [result_fields]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/files/result_fields?at=refs%2Fheads%2Fday_3>
+[dao_pattern]: <https://www.tutorialspoint.com/design_pattern/data_access_object_pattern.htm>
+[intro_to_sql]: <https://app.pluralsight.com/course-player?clipId=6ab80ae6-a01f-4e9d-b5d6-d1258a00bfd0>
+[sql_select]: <https://app.pluralsight.com/course-player?clipId=07e1f022-3398-445b-a077-0665a62da7dc>
+[sql_insert]: <https://app.pluralsight.com/course-player?clipId=7f52450a-2b0b-443a-bd52-d17b64c553f8>
+[list_of_sql_screenings]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/src/main/resources/db/data.sql?at=refs%2Fheads%2Fday_3>
+[screening_jdbc_single]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/files/get_single_screening_query?at=day_3>
+[screening_jdbc_all]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/files/get_all_screenings_query?at=day_3>

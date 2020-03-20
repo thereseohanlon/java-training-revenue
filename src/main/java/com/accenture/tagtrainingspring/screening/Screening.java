@@ -1,10 +1,8 @@
 package com.accenture.tagtrainingspring.screening;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class Screening {
 
     private int id;
