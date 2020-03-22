@@ -1,9 +1,8 @@
 package com.accenture.tagtrainingspring.screening;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -14,8 +13,8 @@ public class ScreeningController {
     @Autowired
     ScreeningDao screeningDao;
 
-    @RequestMapping(value = "/screening", method = RequestMethod.GET)
-    public String getScreening(@RequestParam int id) {
+    @GetMapping("/screenings/{id}")
+    public String getScreening(@PathVariable int id) {
         Screening screening = screeningDao.get(id);
 
         if (screening != null) {
@@ -25,7 +24,7 @@ public class ScreeningController {
         }
     }
 
-    @RequestMapping(value = "/screenings", method = RequestMethod.GET)
+    @GetMapping("/screenings")
     public String getScreening() {
         List<Screening> screenings = screeningDao.get();
         return screenings.toString();

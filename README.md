@@ -142,7 +142,7 @@ Again, watch the below videos before you attempt the first task:
 * [REST API][what_is_rest] - REST is what we use to send and recieve information. In our case it will be screening results.
 * [Spring REST][spring_rest] - Here's how to do it in Spring!
 * [Autowring][autowiring] and a short [demo][autowiring_demo] - The spring framework comes with handy Java annotations that reduce the amount of code we need to write. 
-* [Spring Annotations][list_of_annotations] - Bit of background on the annotations we will use. In paticular, ```@Autowired```, ```@Service``` and ```@RequestMapping```. 
+* [Spring Annotations][list_of_annotations] - Bit of background on the annotations we will use. In paticular, ```@Autowired```, ```@Service``` and ```@GetMapping```. 
 
 ### Tasks
 
@@ -203,10 +203,10 @@ Let's begin...
 3. Autowire the ```ScreeningDatabase``` into the ```ScreeningService``` class, removing previous references to ```new```. 
 4. Update the ```ScreeningService``` to itself be a service bean using the ```@Service``` annotation. 
 5. Now, autowire the ```ScreeningService``` into the new ```ScreeningController```.
-6. Now add a new method to the ```ScreeningController``` called _getScreening_. This method should take a String as a name, annotated with the ```@RequestParam``` annotation, and return a String result.
+6. Now add a new method to the ```ScreeningController``` called _getScreening_. This method should take a String as a name, annotated with the ```@PathVariable``` annotation, and return a String result.
 7. Cut the code from the main class we previously wrote and put it here. The main class should now be empty, except for the line ```SpringApplication.run(TagTraining...``` which initializes our whole app. What we want to do in this method is to simply get the screening for a name we pass in from our browser from our service. Then instead of printing the result, simply returning it. This means then result will then display on our browser.
-8. Add the ```@RequestMapping("/screening")``` annotation to give ourselves a path to our new method. This will be the route to call the controller which Spring will map to.  
-9. Run the Spring app and test it out! Try hitting ```http://localhost:8080/screening?name=Joe``` and the result for Joe should appear in the browser.
+8. Add the ```@GetMapping("/screenings")``` annotation to give ourselves a path to our new method. This will be the route to call the controller which Spring will map our URL to.  
+9. Run the Spring app and test it out! Try hitting ```http://localhost:8080/screenings/Joe``` and the result for Joe should appear in the browser.
 
 [conditional_logic]: <https://app.pluralsight.com/course-player?clipId=08c83d54-1d3e-456a-b122-cb3673f607b3>
 [if_else_statements]: <https://app.pluralsight.com/course-player?clipId=a8930d13-7598-4dd4-b2c6-6b7b0af0f90a3>
@@ -276,7 +276,7 @@ We'll do this now in Task 2...
 * We just need to do 2 things to setup [Lombok in Intellij][intellij_lombok]. That is enable annotation processing in settings and add the Lombok plugin for Intellij.  
 * You can find the Maven dependency for lombok here https://mvnrepository.com/artifact/org.projectlombok/lombok/1.18.12. Simply copy and paste this into your dependency section in your pom.xml (Project Object Model) file.
 * You can remove empty constructor from any of our Bean classes.
-* The new screening endpoint should look something like this http://localhost:8080/screening?id=842302
+* The new screening endpoint should look something like this http://localhost:8080/screenings/842302
 
 #### Task 2
 Now we're ready to implement the poulation of screenings from our local database. Running in the background of our Spring app is an in memory database with 100's of [screenings][list_of_sql_screenings]. What we're going to do now is implement a few changes so that we can get this data!
@@ -299,16 +299,14 @@ Now we're going to write some SQL to get screenings from the local database.
 4. Do the same for a single patient id. Use [this][screening_jdbc_single] Java code to execute your SQL to return just a single ```Screening```.
 5. Update the ```Screening``` with the Lombok ```Data``` annotation. This will allow our Screenings to be represented as strings.
 6. Add a new method to the ```ScreeningController``` to get all screenings. Use the ```toString()``` method to return a String representation of the list of ```Screenings```.
-7. Update the ```RequestMapping``` annotations to use RequestMethod.GET. Also update the endpoint to use an alias for the /screening endpoint. [Here's][request_mapping_example] an example of how this is done.  
-8. Run the app and check that the endpoints are now working.
+7. Run the app and check that the endpoints are now working.
 
 **To test endpoints**: Try a patient id that does exist and one that does not. You should get an error for the one that does not esixt. This is an exception and we will be updating our code to cleanly handle this later. Also try the endpoint to get all Screenings. It should return every ```Screening``` from the database as it's string representation in one big blob of text.
 
 *Hints*
 * Intellij can implement the methods from an interface automatically for you. Click the red ballon after you have added the ```implements ScreeningDao``` line to the ```ScreeningDatabase``` and click *Implement Methods*.
 * To easily rename a class and all it's references in Intellij, right click the class in the Project menu and click refactor -> rename.
-* The ```ScreeningRowMapper```  maps the SQL screening to our Java ```Screening``` objects.
-* Give the ```RequestMapping``` for getting all screenings a different value else Spring will complain.
+* The ```ScreeningRowMapper```  maps the SQL screening result to our Java ```Screening``` objects.
 
 
 [malignant_dataset_file]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/src/main/resources/malignant_cancer_dataset.csv?at=day_3>
