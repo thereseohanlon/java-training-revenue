@@ -311,7 +311,23 @@ Now we're going to write some SQL to get screenings from the local database.
 * To easily rename a class and all it's references in Intellij, right click the class in the Project menu and click refactor -> rename.
 * The ```ScreeningRowMapper```  maps the SQL screening result to our Java ```Screening``` objects.
 
+#### Task 3
+In the previous task we selected, or **Read**, screenings. Now we are going to **Create** them. 
 
+1. Add a new method signature to the ```ScreeningController``` that's purpose is to update a screening.  
+2. Give it an annotation of ```@PostMapping("screenings")```. 
+3. Also give it a ```@RequestBody``` of ```Screening```. This means that we expect a JSON version of a screening to be sent in the request to our app. 
+4. Update the ```ScreeningDao``` with a new save method. It should take a ```Screening``` as a parameter.
+5. Implement this method in the ```ScreeningDaoImpl```. Using the ```jdbcTemplate.update()```, write SQL to insert a new row into ```screening_results``` with the values ```id```, ```diagnosis```, ```symmetry_mean``` and ```group_id```.
+
+Now we're ready to send some JSON to our new endpoint!
+1. In **PostMan**, create a new request with a method type of **Post**. 
+2. Get a JSON ```Screening``` from the single screening endpoint and paste it into the *Body -> raw JSON* tab of the request in PostMan. 
+2. **Modify** some of the values on the request, paticulary the screening *id*.
+3. Send it!
+4. Verify your new screening exists by fetching it.
+
+That's it, you've now created an API using Spring!
 
 [malignant_dataset_file]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/src/main/resources/malignant_cancer_dataset.csv?at=day_3>
 [project_lombok]: <https://projectlombok.org/>
@@ -330,6 +346,3 @@ Now we're going to write some SQL to get screenings from the local database.
 [screening_jdbc_single]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/files/get_single_screening_query?at=day_3>
 [screening_jdbc_all]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/files/get_all_screenings_query?at=day_3>
 [request_mapping_example]: <https://www.baeldung.com/spring-requestmapping#1-requestmapping---by-path>
-
-
-
