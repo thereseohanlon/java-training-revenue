@@ -24,7 +24,7 @@ Lets get started...
 
 Some of the tools we'll be using today include:
 
-  - **Git** is used to store our code. When we make a change, we want to commit it to Git so that it is saved somewhere safe. Others can then pull down our code and run or modify it. **Throughout the course, we will be committing our code to our own repository**. To do this, we will create a GitHub account and pull down our skeleton project.
+  - **Git** is used to store our code. When we make a change, we want to commit it to Git so that it is saved somewhere safe. Others can then pull down our code and run or modify it. **Throughout the course, we will be committing our code to our own private repository**. To do this, we will create a repo in InnserSource push to it.
   - **Intellij** is the IDE we will be using to write and run our code. It's easy to use and contains everything we need to create and deploy Java applications.
   - **Java** is the language we use to write our code. It is based around the idea of Objects. In our case, a patient that could potentially have a malignant cancer could be a patient object, with a name, date of birth and gender. 
   - **Postman** is a tool we can use to test our API. It allows us to easily send an recieve data.
@@ -35,7 +35,6 @@ Watch the below videos before you attempt the first task:
 
 * [What is Git][what_is_git] - Overview of what Git is and why we use it.
 * [Git Hipster Analogy][git_hipster_analogy] - Another way to think about version control systems.
-* [Create a GitHub Account][create_a_github_account] - Set yourself up with a brand new Github account (If you already have one, great!). 
 * [Basic Git Commands][basic_git_commands] - Basics such as clone, push, pull & branch which you'll need.
 * [What is Java][what_is_java] - Overview of Java.
 * [JRE & JDK][jre_and_jdk] - A bit more background on Java. Good to know...
@@ -63,7 +62,7 @@ With the videos watched, we can now move onto the fun part. What we'll be doing 
 * Import the project as a Maven project. We'll come to what Maven is later.
 
 #### Task 2
-With the app up and running, we can now write some basic code. In our project, we want to represent patients and their cancer diagnoses. We can do this using classes. These classes will contain multiple fields to represent information.
+With the app up and running, we can now write some basic code. In our project, we want to represent patient's and their cancer diagnoses. We can do this using classes. These classes will contain multiple fields to represent information.
 
 1. First thing first is to create a branch for our new code. 
 2. Create a basic class to represent a ```Patient```. Put this object in a new package.
@@ -79,11 +78,11 @@ With the app up and running, we can now write some basic code. In our project, w
 4. Add a constructor to each class.
 5. Add getters and setters for each field.
 6. In your main class, create a new instance of each object using some dummy data.
-7. Print out the patients name and their diaganosis to the console using a ```String```.
+7. Print out the patient's name and their diaganosis to the console using a ```String```.
 8. Change the ```patientId``` field in ```Screening``` to be an instance of ```Patient```. You will need to update the constructor, getters & setters.
 9. Rerun the app and verify the same info is printed to the console.
-10. Update the patients name using the setter on the ```Patient``` class. Verify the new name is printed.
-10. Merge your changes into your main branch and push it up to Github!
+10. Update the patient's name using the setter on the ```Patient``` class. Verify the new name is printed.
+11. Merge your changes into your main branch and push it up to InnerSource!
 
 *Hints*
 * In most project you have a main branch and your own dev branch. Call the branch something identifiable, such as john_doe_dev.
@@ -97,7 +96,7 @@ With the app up and running, we can now write some basic code. In our project, w
 
 [what_is_git]: <https://app.pluralsight.com/course-player?clipId=3fd2f988-28c6-4cbb-8851-94de23080b51>
 [git_hipster_analogy]: <https://app.pluralsight.com/course-player?clipId=e9ff6152-e93f-4b08-89eb-3788cf4d58ce>
-[create_a_github_account]: <https://app.pluralsight.com/course-player?clipId=0fba4e77-ad72-405f-bb1e-042a6de673cc>
+[create_an_innersource_account]: <https://innersource.accenture.com/dashboard>
 [basic_git_commands]: <https://app.pluralsight.com/course-player?clipId=acfe96df-3bb7-49a7-8054-9e3d72e2c638>
 [what_is_java]: <https://app.pluralsight.com/course-player?clipId=f7a9fd0c-1ee8-4628-b21c-ef5a3d246f72>
 [jre_and_jdk]: <https://app.pluralsight.com/course-player?clipId=da83e7db-4c5e-4307-aad5-0826861155e2>
@@ -149,7 +148,7 @@ Again, watch the below videos before you attempt the first task:
 
 Again, we'll be applying some of what we've learnt in the above videos to our project. What we want to do today is add some verifications to make sure there aren't any mistakes in our logic. We can do this using conditional logic. We also want to leverage the power of collections so that we can process multiple objects, such as a list of screenings. 
 
-Finally, we're going to add **Spring** to our project! This will allow us to make requests to our app from our browser to get information, or resources. This is know as a REST API Again, there's a lot going on under the hood with Spring but we'll just be wiring up the basics. Spring is designed to be very easy to work with and provides a number of **annotations**. These are single lines of code which do a lot of work for us. 
+Finally, we're going to add **Spring** to our project! This will allow us to make requests to our app from our browser to get information, or resources. This is knonw as a REST API. Again, there's a lot going on under the hood with Spring but we'll just be wiring up the basics. Spring is designed to be very easy to work with and provides a number of **annotations**. These are single lines of code which do a lot of work for us. 
 
 Let's start...
 
@@ -165,7 +164,7 @@ Let's start...
 1. Create a few new ```Patient``` objects 
 2. Also create a few corresponding ```Screening``` objects for each patient.
 3. Create a ```List``` of screenings and add each screening to that list.
-4. Using a loop, iterate over the list of screenings and print out the patients name and their screening result (like below).
+4. Using a loop, iterate over the list of screenings and print out the patient's name and their screening result (like below).
 
 #### Task 3
 Now we're going to clean up our code by moving what we've written so far into seperate classes. 
@@ -230,14 +229,16 @@ Let's begin...
 ## Day 3
 
 ### Overview
-For the final day of Java training, well be exploring Spring a bit more and finalising our project. What we want is a system that can take
+For the final day of Java training, well be fleshing out our API to retrieve and create screenings. To do this, we'll be leveraging the power of Spring. Spring has many powerful tools for manipulating data, particularly for creating APIs. The annotations it provides will allows us to easily read and insert data. We'll also be implementing a simple Design Pattern to access our data, as well as implementing an interface and doing some basic interactions with a database.  
+
+In the background of our Spring app is a prepopulated, in-memory database of screenings. This is what we're going to be interacting with today to get and store data through our API. The database contains about 500 screenings with each one being uniquely identified by an *id*. This id belongs to a single patient. Our Spring app interacts with the database using the power of SQL. We'll only have to write a few lines to get things up and running.     
 
 ### Pluralsight
 
-Below are a number of videos to watch.  related to Spring, Maven, HTTP, API's and databases:
+Below are several videos to watch related to Spring, Maven, HTTP, API's and databases, all of which we're going to cover in the tasks for today:
 
-* [Maven][what_is_maven] - Maven is what we use to manage dependecies in our project. Lombok is one of these.
-* [Lombok][what_is_lombok] - Lombok reduces the amount of repetivive code we need to write. Such as getters/setters and even constructors.
+* [Maven][what_is_maven] - Maven is what we use to manage dependencies in our project. Lombok is one of these.
+* [Lombok][what_is_lombok] - Lombok reduces the amount of repetitive code we need to write. Such as getters/setters and even constructors.
 * [JSON][what_is_json] - JSON is a way of formatting our objects in a standard format so they can be used by other programs. This is useful in our case when we want to send a screening to our frontend!
 * [Design Patterns][design_patterns_intro] - Design patterns are proven coding solutions to common occuring problems in software design. We'll be using the DAO (Data Access Object) pattern to get our Screenings from a database! 
 * [Interfaces][interfaces] - Part of implementing our DAO requires creating an interface. This is like a Java contract which is implemented by our classes.
@@ -248,11 +249,11 @@ Below are a number of videos to watch.  related to Spring, Maven, HTTP, API's an
 * [Exceptions][exceptions] - Java throws exceptions when it hits a problem, such as no data coming back after running a SQL query. We can catch these and handle them cleanly in our program.
 
 #### Task 1
-Our first task will be to add a new class to represent all the data in a malignant cancer screening. As you can see from the [file][malignant_dataset_file] which represents malignant screenings for a number of patients, there are quite a lot of fields we will need in our class! If we where to write a getter/setter for each field, the class would run to 100's of lines. 
+Our first task will be to add a new class to represent all the data in a malignant cancer screening. As you can see from the [file][malignant_dataset_file] which represents malignant screenings for a number of patient's, there are quite a lot of fields we will need in our class! If we were to write a getter/setter for each field, the class would run to 100's of lines. 
 
 To get around this, we can use a code generation tool called [Lombok][project_lombok]. Lombok will create getters/setters on the class at runtime, saving us from having to explicitly write them. Now instead of having a bloated class file, we simply have Lombok do all the work using 2 simple annotations at the top of the class! 
 
-Lets do this now:
+Let's do this now:
 
 1. Install the Lombok plugin for Intellij and enable annotation processing. 
 2. Now add the Lombok dependency to our pom.xml.
@@ -268,21 +269,21 @@ Now we just need to clean up our code to factor in our changes to the ```Screeni
 4. In the same class, update all references to the String ```name``` to use an int ```id``` field instead.
 5. Update the ```ScreeningService``` to take the ID for a patient and return the appropriate screening.
 6. In the same class, you can delete the ```checkScreening``` and ```printScreeningResult``` methods.
-7. Finally, update the ```ScreeningDatabase``` patients objects with existing id's from the [maliginant dataset file][malignant_dataset_file], i.e *842302*. Also, delete any ```Screening``` objects and just return an empty list for now. We'll be updating this later.
+7. Finally, update the ```ScreeningDatabase``` patient's objects with existing id's from the [maliginant dataset file][malignant_dataset_file], i.e *842302*. Also, delete any ```Screening``` objects and just return an empty list for now. We'll be updating this later.
 8. Check if everything builds ok then hit the screening endpoint with any id. *We don't have any screenings at this point!*
 
-Our objects should now be wired with Lombok! The amount of what is called *BoilerPlate* code has been significantly reduced and our classes look much cleaner. Next we need to populate our ```Screening``` fields with data! 
+Our objects should now be wired with Lombok! The amount of what is called *BoilerPlate* code has been significantly reduced and our classes look much cleaner. Next, we need to populate our ```Screening``` fields with data! 
 
 We'll do this now in Task 2...
 
 *Hints*
 * We just need to do 2 things to setup [Lombok in Intellij][intellij_lombok]. That is enable annotation processing in settings and add the Lombok plugin for Intellij.  
-* You can find the Maven dependency for lombok here https://mvnrepository.com/artifact/org.projectlombok/lombok/1.18.12. Simply copy and paste this into your dependency section in your pom.xml (Project Object Model) file.
+* You can find the Maven dependency for Lombok here https://mvnrepository.com/artifact/org.projectlombok/lombok/1.18.12. Simply copy and paste this into your dependency section in your pom.xml (Project Object Model) file.
 * You can remove empty constructor from any of our Bean classes.
 * The new screening endpoint should look something like this http://localhost:8080/screenings/842302
 
 #### Task 2
-Now we're ready to implement the poulation of screenings from our local database. Running in the background of our Spring app is an in memory database with 100's of [screenings][list_of_sql_screenings]. What we're going to do now is implement a few changes so that we can get this data!
+Now we're ready to implement the population of screenings from our local database. Running in the background of our Spring app is an in memory database with 100's of [screenings][list_of_sql_screenings]. What we're going to do now is implement a few changes so that we can get this data!
 
 First we need to create our contract for accessing the Screening data from our local database.
 1. Create a new interface ```ScreeningDao``` in the screening package.
@@ -298,7 +299,7 @@ First we need to create our contract for accessing the Screening data from our l
 Now we're going to write some SQL to get screenings from the local database. 
 1. First autowire the ```JdbcTemplate``` Bean into our ```ScreeningDaoImpl```. This is used to executre our SQL.
 2. Create a new *String* to represent an SQL statement to get all the fields from the table *screening_results*.
-3. Add [this][screening_jdbc_all] line to your method which will use the JDBCTemplate to attempt to execute your sql and return a list of ```Screenings```. 
+3. Add [this][screening_jdbc_all] line to your method which will use the JDBCTemplate to attempt to execute your SQL and return a list of ```Screenings```. 
 4. Do the same for a single patient id. Use [this][screening_jdbc_single] Java code to execute your SQL to return just a single ```Screening```.
 5. Update both methods 
 5. Update the ```ScreeningController``` existing get method to directly return a ```Screening```. Spring will automatically convert the object to JSON for us as we are using the ```@RestController``` annotation. 
@@ -324,9 +325,8 @@ In the previous task we selected, or **Read**, screenings. Now we are going to *
 Now we're ready to send some JSON to our new endpoint!
 1. In **PostMan**, create a new request with a method type of **Post**. 
 2. Get a JSON ```Screening``` from the single screening endpoint and paste it into the *Body -> raw JSON* tab of the request in PostMan. 
-2. **Modify** some of the values on the request, paticulary the screening *id*.
-3. Send it!
-4. Verify your new screening exists by fetching it.
+3. **Modify** some of the values on the request, particularly  the screening *id*.
+4. Send it and verify your new screening exists by fetching the screening for the new patient id.
 
 That's it, you've now created an API using Spring!
 
@@ -338,7 +338,7 @@ For our final task, we're going to implement a small bit of exception handling. 
 3. In the catch block, you want to catch the Exception type ```EmptyResultDataAccessException```.
 4. Print a helpful message in the catch block. 
 
-For extra points, you can implement logging! Logs are what we analyze on live systems to see where errors occured.
+For extra points, you can implement logging! Logs are what we analyze on live systems to see where errors occurred.
 1. At the top of the ```ScreeningDaoImpl``` class, add the annotation ```@Slf4j```. This is our logging library.
 2. In the catch method, replace the message with ```log.info("..."")``` for example.
 3. Run the app and try a patient id that doesn't exist. Verify the log message shows on the console output.
