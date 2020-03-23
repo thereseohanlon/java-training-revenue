@@ -57,7 +57,7 @@ With the videos watched, we can now move onto the fun part. What we'll be doing 
 4. Run the app. You should see a welcome message in the console screen.
 
 *Hints*
-* You can install [Git for Windows] to use Git on your laptop.
+* You can install [Git for Windows][git_for_windows] to use Git on your laptop.
 * It's a good idea to have a dedicated development folder on your PC. Perhaps C:/development/projects...
 * Import the project as a Maven project. We'll come to what Maven is later.
 
@@ -209,7 +209,7 @@ Let's begin...
 9. Run the Spring app and test it out! Try hitting ```http://localhost:8080/screenings/Joe``` from **Postman** and the result for Joe should come back.
 
 [conditional_logic]: <https://app.pluralsight.com/course-player?clipId=08c83d54-1d3e-456a-b122-cb3673f607b3>
-[if_else_statements]: <https://app.pluralsight.com/course-player?clipId=a8930d13-7598-4dd4-b2c6-6b7b0af0f90a3>
+[if_else_statements]: <https://app.pluralsight.com/course-player?clipId=a8930d13-7598-4dd4-b2c6-6b7b0af0f90a>
 [logical_operators]: <https://app.pluralsight.com/course-player?clipId=967235c1-a424-41a4-9918-f9646086ee10>
 [switch]: <https://app.pluralsight.com/course-player?clipId=25d15753-fb1b-4fe8-a8e6-38224b46dab8>
 [lists]: <https://www.geeksforgeeks.org/list-interface-java-examples/>
@@ -363,5 +363,3 @@ Done! We have now implemented **C** and **R** from **CRUD** in our Screening API
 [screening_jdbc_all]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/files/get_all_screenings_query?at=day_3>
 [request_mapping_example]: <https://www.baeldung.com/spring-requestmapping#1-requestmapping---by-path>
 [exceptions]: <https://app.pluralsight.com/course-player?clipId=fdc2608f-2949-46ef-9c07-92e50fcec29d>
-
-
