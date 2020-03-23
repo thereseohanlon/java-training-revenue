@@ -27,6 +27,7 @@ Some of the tools we'll be using today include:
   - **Git** is used to store our code. When we make a change, we want to commit it to Git so that it is saved somewhere safe. Others can then pull down our code and run or modify it. **Throughout the course, we will be committing our code to our own repository**. To do this, we will create a GitHub account and pull down our skeleton project.
   - **Intellij** is the IDE we will be using to write and run our code. It's easy to use and contains everything we need to create and deploy Java applications.
   - **Java** is the language we use to write our code. It is based around the idea of Objects. In our case, a patient that could potentially have a malignant cancer could be a patient object, with a name, date of birth and gender. 
+  - **Postman** is a tool we can use to test our API. It allows us to easily send an recieve data.
 
 ### Pluralsight
 
@@ -206,7 +207,7 @@ Let's begin...
 6. Now add a new method to the ```ScreeningController``` called _getScreening_. This method should take a String as a name, annotated with the ```@PathVariable``` annotation, and return a String result.
 7. Cut the code from the main class we previously wrote and put it here. The main class should now be empty, except for the line ```SpringApplication.run(TagTraining...``` which initializes our whole app. What we want to do in this method is to simply get the screening for a name we pass in from our browser from our service. Then instead of printing the result, simply returning it. This means then result will then display on our browser.
 8. Add the ```@GetMapping("/screenings")``` annotation to give ourselves a path to our new method. This will be the route to call the controller which Spring will map our URL to.  
-9. Run the Spring app and test it out! Try hitting ```http://localhost:8080/screenings/Joe``` and the result for Joe should appear in the browser.
+9. Run the Spring app and test it out! Try hitting ```http://localhost:8080/screenings/Joe``` from **Postman** and the result for Joe should come back.
 
 [conditional_logic]: <https://app.pluralsight.com/course-player?clipId=08c83d54-1d3e-456a-b122-cb3673f607b3>
 [if_else_statements]: <https://app.pluralsight.com/course-player?clipId=a8930d13-7598-4dd4-b2c6-6b7b0af0f90a3>
@@ -237,9 +238,10 @@ Below are a number of videos to watch.  related to Spring, Maven, HTTP, API's an
 
 * [Maven][what_is_maven] - Maven is what we use to manage dependecies in our project. Lombok is one of these.
 * [Lombok][what_is_lombok] - Lombok reduces the amount of repetivive code we need to write. Such as getters/setters and even constructors.
+* [JSON][what_is_json] - JSON is a way of formatting our objects in a standard format so they can be used by other programs. This is useful in our case when we want to send a screening to our frontend!
 * [Design Patterns][design_patterns_intro] - Design patterns are proven coding solutions to common occuring problems in software design. We'll be using the DAO (Data Access Object) pattern to get our Screenings from a database! 
 * [Interfaces][interfaces] - Part of implementing our DAO requires creating an interface. This is like a Java contract which is implemented by our classes.
-* [What is CRUD][what_is_crud] - Acronym for Create, Read, Update and Delete used commonly with APIs. In our case we are going to Read and Update screenings. 
+* [What is CRUD][what_is_crud] - Acronym for Create, Read, Update and Delete used commonly with APIs. In our case we are going to Read and Create screenings. Link also contains some good examples of JSON and how it's used in CRUD operations.
 * [Intro to Databases/SQL][intro_to_sql] - We'll be writing a small bit of SQL to get data from our local database.
 * [SELECT statements in SQL][sql_select] - SELECTs are used to **GET** the data we want from the database.
 * [INSERTS statements in SQL][sql_insert] - INSERTs are used to add data to a database.
@@ -293,15 +295,16 @@ First we need to create our contract for accessing the Screening data from our l
 5. Check everything is still working!
 
 Now we're going to write some SQL to get screenings from the local database. 
-1. First autowire the ```JdbcTemplate``` Bean into our ```ScreeningDaoImpl```. This is used to run our SQL.
+1. First autowire the ```JdbcTemplate``` Bean into our ```ScreeningDaoImpl```. This is used to executre our SQL.
 2. Create a new *String* to represent an SQL statement to get all the fields from the table *screening_results*.
 3. Add [this][screening_jdbc_all] line to your method which will use the JDBCTemplate to attempt to execute your sql and return a list of ```Screenings```. 
 4. Do the same for a single patient id. Use [this][screening_jdbc_single] Java code to execute your SQL to return just a single ```Screening```.
-5. Update the ```Screening``` with the Lombok ```Data``` annotation. This will allow our Screenings to be represented as strings.
-6. Add a new method to the ```ScreeningController``` to get all screenings. Use the ```toString()``` method to return a String representation of the list of ```Screenings```.
-7. Run the app and check that the endpoints are now working.
+5. Update both methods 
+5. Update the ```ScreeningController``` existing get method to directly return a ```Screening```. Spring will automatically convert the object to JSON for us as we are using the ```@RestController``` annotation. 
+7. Add a new method to the ```ScreeningController``` to get all screenings. Again, return a list ```Screening```.
+8. Run the app and check that the endpoints are now working. 
 
-**To test endpoints**: Try a patient id that does exist and one that does not. You should get an error for the one that does not esixt. This is an exception and we will be updating our code to cleanly handle this later. Also try the endpoint to get all Screenings. It should return every ```Screening``` from the database as it's string representation in one big blob of text.
+**To Test the Endpoints**: Try a patient id that does exist and one that does not. You should get an error for the one that does not exist. This is an exception and we will be updating our code to better handle this later. Also, try the endpoint to get all Screenings. It should return every ```Screening``` from the database as one big blob of JSON.
 
 *Hints*
 * Intellij can implement the methods from an interface automatically for you. Click the red ballon after you have added the ```implements ScreeningDao``` line to the ```ScreeningDatabase``` and click *Implement Methods*.
@@ -309,11 +312,13 @@ Now we're going to write some SQL to get screenings from the local database.
 * The ```ScreeningRowMapper```  maps the SQL screening result to our Java ```Screening``` objects.
 
 
+
 [malignant_dataset_file]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/src/main/resources/malignant_cancer_dataset.csv?at=day_3>
 [project_lombok]: <https://projectlombok.org/>
 [design_patterns_intro]: <https://app.pluralsight.com/player?course=patterns-library&author=david-starr&name=pattern-introduction&clip=1&mode=live>
 [what_is_maven]: <https://app.pluralsight.com/course-player?clipId=b70e1c45-eeb9-4c8b-a87c-ae14e68f2828>
 [what_is_lombok]: <https://www.vogella.com/tutorials/Lombok/article.html>
+[what_is_json]: <https://app.pluralsight.com/course-player?clipId=ae43bd39-46e6-41b3-b005-0ba6cc29d020>
 [intellij_lombok]: <https://www.baeldung.com/lombok-ide>
 [result_fields]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/files/result_fields?at=refs%2Fheads%2Fday_3>
 [dao_pattern]: <https://www.tutorialspoint.com/design_pattern/data_access_object_pattern.htm>

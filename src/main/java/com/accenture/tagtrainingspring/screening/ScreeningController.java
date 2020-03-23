@@ -14,20 +14,13 @@ public class ScreeningController {
     ScreeningDao screeningDao;
 
     @GetMapping("/screenings/{id}")
-    public String getScreening(@PathVariable int id) {
-        Screening screening = screeningDao.get(id);
-
-        if (screening != null) {
-            return (id + " does have a screening with a result of " + screening.getDiagnosis());
-        } else {
-            return (id + " does not have a screening");
-        }
+    public Screening getScreening(@PathVariable int id) {
+        return screeningDao.get(id);
     }
 
     @GetMapping("/screenings")
-    public String getScreening() {
-        List<Screening> screenings = screeningDao.get();
-        return screenings.toString();
+    public List<Screening> getScreening() {
+        return screeningDao.get();
     }
 
 }
