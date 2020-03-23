@@ -245,6 +245,7 @@ Below are a number of videos to watch.  related to Spring, Maven, HTTP, API's an
 * [Intro to Databases/SQL][intro_to_sql] - We'll be writing a small bit of SQL to get data from our local database.
 * [SELECT statements in SQL][sql_select] - SELECTs are used to **GET** the data we want from the database.
 * [INSERTS statements in SQL][sql_insert] - INSERTs are used to add data to a database.
+* [Exceptions][exceptions] - Java throws exceptions when it hits a problem, such as no data coming back after running a SQL query. We can catch these and handle them cleanly in our program.
 
 #### Task 1
 Our first task will be to add a new class to represent all the data in a malignant cancer screening. As you can see from the [file][malignant_dataset_file] which represents malignant screenings for a number of patients, there are quite a lot of fields we will need in our class! If we where to write a getter/setter for each field, the class would run to 100's of lines. 
@@ -329,6 +330,21 @@ Now we're ready to send some JSON to our new endpoint!
 
 That's it, you've now created an API using Spring!
 
+## Task 4
+For our final task, we're going to implement a small bit of exception handling. This is to catch errors the our Java program throws when we don't get any results back after running our SQL.
+
+1. In the ```ScreeningDaoImpl``` get for patient id method, implement an empty try/catch block.
+2. Wrap your ```jdmbcTemplaye.queryForObject()``` code in the try block.
+3. In the catch block, you want to catch the Exception type ```EmptyResultDataAccessException```.
+4. Print a helpful message in the catch block. 
+
+For extra points, you can implement logging! Logs are what we analyze on live systems to see where errors occured.
+1. At the top of the ```ScreeningDaoImpl``` class, add the annotation ```@Slf4j```. This is our logging library.
+2. In the catch method, replace the message with ```log.info("..."")``` for example.
+3. Run the app and try a patient id that doesn't exist. Verify the log message shows on the console output.
+
+Done! We have now implemented **C** and **R** from **CRUD** in our Screening API. 
+
 [malignant_dataset_file]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/src/main/resources/malignant_cancer_dataset.csv?at=day_3>
 [project_lombok]: <https://projectlombok.org/>
 [design_patterns_intro]: <https://app.pluralsight.com/player?course=patterns-library&author=david-starr&name=pattern-introduction&clip=1&mode=live>
@@ -346,3 +362,6 @@ That's it, you've now created an API using Spring!
 [screening_jdbc_single]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/files/get_single_screening_query?at=day_3>
 [screening_jdbc_all]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/files/get_all_screenings_query?at=day_3>
 [request_mapping_example]: <https://www.baeldung.com/spring-requestmapping#1-requestmapping---by-path>
+[exceptions]: <https://app.pluralsight.com/course-player?clipId=fdc2608f-2949-46ef-9c07-92e50fcec29d>
+
+

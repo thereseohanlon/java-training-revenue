@@ -1,12 +1,15 @@
 package com.accenture.tagtrainingspring.screening;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
+@Slf4j
 public class ScreeningDaoImpl implements ScreeningDao {
 
     @Autowired
@@ -16,7 +19,13 @@ public class ScreeningDaoImpl implements ScreeningDao {
     public Screening get(int patientId) {
         String sql = "select * from screening_results where id = ?";
 
-        return jdbcTemplate.queryForObject(sql, new Object[]{patientId}, new ScreeningRowMapper());
+        try {
+            return jdbcTemplate.queryForObject(sql, new Object[]{patientId}, new ScreeningRowMapper());
+        } catch (EmptyResultDataAccessException e) {
+            log.info("No results found for patient id: " + patientId);
+        }
+
+        return null;
     }
 
     @Override
