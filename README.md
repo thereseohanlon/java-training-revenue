@@ -348,6 +348,7 @@ Done! We have now implemented **C** and **R** from **CRUD** in our Screening API
 [malignant_dataset_file]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/src/main/resources/malignant_cancer_dataset.csv?at=day_3>
 [project_lombok]: <https://projectlombok.org/>
 [design_patterns_intro]: <https://app.pluralsight.com/player?course=patterns-library&author=david-starr&name=pattern-introduction&clip=1&mode=live>
+[interfaces]: <https://app.pluralsight.com/course-player?clipId=d4231326-1038-403d-99e9-686dc460eb59>
 [what_is_maven]: <https://app.pluralsight.com/course-player?clipId=b70e1c45-eeb9-4c8b-a87c-ae14e68f2828>
 [what_is_lombok]: <https://www.vogella.com/tutorials/Lombok/article.html>
 [what_is_json]: <https://app.pluralsight.com/course-player?clipId=ae43bd39-46e6-41b3-b005-0ba6cc29d020>
@@ -363,3 +364,5 @@ Done! We have now implemented **C** and **R** from **CRUD** in our Screening API
 [screening_jdbc_all]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/files/get_all_screenings_query?at=day_3>
 [request_mapping_example]: <https://www.baeldung.com/spring-requestmapping#1-requestmapping---by-path>
 [exceptions]: <https://app.pluralsight.com/course-player?clipId=fdc2608f-2949-46ef-9c07-92e50fcec29d>
+
+
