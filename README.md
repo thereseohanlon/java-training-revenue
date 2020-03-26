@@ -338,7 +338,7 @@ Now we're ready to send some JSON to our new endpoint!
 
 That's it, you've now created an API using Spring!
 
-## Task 4: Exceptions
+#### Task 4: Exceptions
 For our final task, we're going to implement a small bit of exception handling. This is to catch errors the our Java program throws when we don't get any results back after running our SQL.
 
 1. In the ```ScreeningDaoImpl``` get for patient id method, implement an empty try/catch block.
