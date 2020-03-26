@@ -1,6 +1,8 @@
 # Accenture TAG Training - Cancer Diagnosis Predictor 
 
-Welcome to the TAG training course! This Git repo contains a starter project ready for you to clone. Over the next five days, we'll build it up to be able to do some cool stuff. The aim is to have an app that can feed data into a program that helps doctors diagnose a persons risk of developing cancer using some machine learning magic next week. By the end of this course, you should have a greater understanding of Git, Java, Angular and some basic DevOps.   
+Welcome to the TAG training course for Java! This Git repo contains a skeleton project ready for you to clone. Over the next few days, we'll build it up to be a fully fledged Java/Spring API. The aim of this course is to get you familiar with the basics of Java, working with Spring and sending and receiving data through web requests. 
+
+The underlying theme of the app is that it acts as an API for doctors to send and recieve malignant cancer diagnoses, called screenings. Under the hood in the skeleton project is an in-memory database of about 500 cancer diagnoses taken from a well known dataset. This is the same dataset you'll be using in the AI hackathon at the end of your training. By the end of the course, you will be able to query this dataset and insert new records all using by using an API you built! 
 
 Sounds exciting!
 
@@ -12,7 +14,9 @@ Some of the things we'll cover:
 
   - Setting up you development environment.
   - Working with Git to clone, commit, push and merge.
-  - Creating classes with variables, methods and other fun stuff in Java.
+  - Creating classes with variables, methods and interfaces and other Java stuff.
+  - Using design patterns to solve the issue of mapping our data to Java.
+  - Building an API to GET and POST data to a database.
   - Creating a front end for our app in Angular to input data from a users perspective.
 
 Lets get started...
@@ -24,10 +28,10 @@ Lets get started...
 
 Some of the tools we'll be using today include:
 
-  - **Git** is used to store our code. When we make a change, we want to commit it to Git so that it is saved somewhere safe. Others can then pull down our code and run or modify it. **Throughout the course, we will be committing our code to our own private repository**. To do this, we will create a repo in InnserSource push to it.
+  - **Git** is used to store our code. When we make a change, we want to commit it to Git so that it is saved somewhere safe. Others can then pull down our code and run or modify it. **Throughout the course, we will be committing our code to our own private repository**. To do this, we will create a repo in InnserSource and then push our skeleton project to it.
   - **Intellij** is the IDE we will be using to write and run our code. It's easy to use and contains everything we need to create and deploy Java applications.
   - **Java** is the language we use to write our code. It is based around the idea of Objects. In our case, a patient that could potentially have a malignant cancer could be a patient object, with a name, date of birth and gender. 
-  - **Postman** is a tool we can use to test our API. It allows us to easily send an recieve data.
+  - **Postman** is a tool we can use to test our API. It allows us to easily send an recieve data. We will be using this starting from Day 2.
 
 ### Pluralsight
 
@@ -50,21 +54,22 @@ Watch the below videos before you attempt the first task:
 
 With the videos watched, we can now move onto the fun part. What we'll be doing today is setting up our development environment, cloning this repo to our local environment and start creating some basic Java classes.
 
-#### Task 1
+#### Task 1: Setup Git and Run App
 1. Setup up Git on your local PC.
 2. Clone this Git repository to somewhere on your computer.
 3. Import the project into Intellij.
 4. Run the app. You should see a welcome message in the console screen.
+5. Push your project up to your InnerSource repo and verify it is there.
 
 *Hints*
 * You can install [Git for Windows][git_for_windows] to use Git on your laptop.
 * It's a good idea to have a dedicated development folder on your PC. Perhaps C:/development/projects...
 * Import the project as a Maven project. We'll come to what Maven is later.
 
-#### Task 2
+#### Task 2: Create and Initialize Some Classes
 With the app up and running, we can now write some basic code. In our project, we want to represent patient's and their cancer diagnoses. We can do this using classes. These classes will contain multiple fields to represent information.
 
-1. First thing first is to create a branch for our new code. 
+1. First thing first is to create a new branch for the code we're about to write. 
 2. Create a basic class to represent a ```Patient```. Put this object in a new package.
     1. Name 
     2. Id 
@@ -118,7 +123,9 @@ With the app up and running, we can now write some basic code. In our project, w
 
 ### Overview
 
-Yesterday we focused on creating classes with some fields to hold our data. Today we will be exploring more of the features that Java provides to do some cool stuff with our classes. Some of these features we'll cover include:
+Yesterday we focused on creating classes with some fields to hold our data. Today we will be exploring more of the features that Java provides to do some more intricate logic stuff with our classes. 
+
+Some of these Java things we'll cover include:
   - **Conditional Logic** also known as if-else statements are used to make decisions if something is true or false. 
   - **Loops** give us the ability to iterate over these arrays and other collections to perform operations on them.
   - **Arrays** allow us to store multiple objects together.
@@ -126,7 +133,7 @@ Yesterday we focused on creating classes with some fields to hold our data. Toda
 
 ### Pluralsight
 
-Again, watch the below videos before you attempt the first task:
+Again, watch the below videos before you attempt the tasks:
 
 * [Conditional Logic][conditional_logic] - What is conditional logic in Java.
 * [If-Else Statements][if_else_statements] - Most commonly used way of making decisions in Java.
@@ -146,27 +153,27 @@ Again, watch the below videos before you attempt the first task:
 
 ### Tasks
 
-Again, we'll be applying some of what we've learnt in the above videos to our project. What we want to do today is add some verifications to make sure there aren't any mistakes in our logic. We can do this using conditional logic. We also want to leverage the power of collections so that we can process multiple objects, such as a list of screenings. 
+We're going to be applying some of what we've learnt in the above videos to our project now. We use conditional logic to enhance some of the code we've already written. This can be used to prevent errors by checking if certain coniditions are true. We can also leverage the power of collections. This allows us to process multiple objects, such as a list of ```Screening```, at once. 
 
-Finally, we're going to add **Spring** to our project! This will allow us to make requests to our app from our browser to get information, or resources. This is knonw as a REST API. Again, there's a lot going on under the hood with Spring but we'll just be wiring up the basics. Spring is designed to be very easy to work with and provides a number of **annotations**. These are single lines of code which do a lot of work for us. 
+Finally, we're going to add **Spring** to our project! This will allow us to make requests to our app from our browser/Postman using a URL and to get resources (like ```Screenings```) back in response. This is known as a REST API. Again, there's a lot going on under the hood with Spring but we'll just be wiring up the basics. Spring is designed to be very easy to work with and provides a number of **annotations**. These are single lines of code starting with the ```@``` symbol which do a lot of work for us. 
 
 Let's start...
 
-#### Task 1
-1. First things first, check your project from yesterday is still working!
+#### Task 1: Use Conditional Logic If/Else
+1. First things first, check your project from yesterday is still working and create a new branch in Git for Day 2!
 2. Create a new class called ```ScreeningService``` in the service package.
     1. Give the class a default constructor.
     2. Add a method in the new class that accepts a ```Screening``` & ```Patient``` as parameters. The method should return true or false depending on if the screening is for the specified patient.
 3. In your main class, instantiate the ```ScreeningSerivce```. 
 4. Pass in a screening and patient and capture the result. With the result, print a message stating wheter the screening matches the patient or not.
 
-#### Task 2
+#### Task 2: Use a Loop to Iterate over Objects
 1. Create a few new ```Patient``` objects 
 2. Also create a few corresponding ```Screening``` objects for each patient.
 3. Create a ```List``` of screenings and add each screening to that list.
 4. Using a loop, iterate over the list of screenings and print out the patient's name and their screening result (like below).
 
-#### Task 3
+#### Task 3: Flesh Out Service Class & Implement For-Each Loop
 Now we're going to clean up our code by moving what we've written so far into seperate classes. 
 1. Start by creating a ```ScreeningDatabase``` class to hold all our ```Patients``` and ```Screenings```. 
 2. Add a new public method to this class to return a list of all the screenings.
@@ -191,7 +198,7 @@ If you've finished the above, congrats! Here's one last challenge:
 2. In your main class, call this new method to get a ```Screening``` back for a name.
 3. If the ```Screening``` you get back is not null, print the name and the screening result. Else, print a message stating that no screening was found.
 
-#### Task 4
+#### Task 4: Implement Basic Spring GET Endpoint 
 Finally, we're going to leverage **Spring** to Autowire our Service and Database classes! This mean that we no longer use the ```new``` keyword to create our utility classes, such as the database. Instead, Spring makes them available to us to use on-demand. These are called **beans** (for some reason). 
 
 However, we have to first do a little bit of prep work to our code. This will allow us to fully leverage Spring and to start making requests from our browser. Our first task is to create a controller. This will take requests from our web browser and gives us back a result. In our case we want to get a screening result for a patient.
@@ -207,6 +214,7 @@ Let's begin...
 7. Cut the code from the main class we previously wrote and put it here. The main class should now be empty, except for the line ```SpringApplication.run(TagTraining...``` which initializes our whole app. What we want to do in this method is to simply get the screening for a name we pass in from our browser from our service. Then instead of printing the result, simply returning it. This means then result will then display on our browser.
 8. Add the ```@GetMapping("/screenings")``` annotation to give ourselves a path to our new method. This will be the route to call the controller which Spring will map our URL to.  
 9. Run the Spring app and test it out! Try hitting ```http://localhost:8080/screenings/Joe``` from **Postman** and the result for Joe should come back.
+10. Don't forget to merge your Day 2 changes into your master branch!
 
 [conditional_logic]: <https://app.pluralsight.com/course-player?clipId=08c83d54-1d3e-456a-b122-cb3673f607b3>
 [if_else_statements]: <https://app.pluralsight.com/course-player?clipId=a8930d13-7598-4dd4-b2c6-6b7b0af0f90a>
@@ -248,8 +256,8 @@ Below are several videos to watch related to Spring, Maven, HTTP, API's and data
 * [INSERTS statements in SQL][sql_insert] - INSERTs are used to add data to a database.
 * [Exceptions][exceptions] - Java throws exceptions when it hits a problem, such as no data coming back after running a SQL query. We can catch these and handle them cleanly in our program.
 
-#### Task 1
-Our first task will be to add a new class to represent all the data in a malignant cancer screening. As you can see from the [file][malignant_dataset_file] which represents malignant screenings for a number of patient's, there are quite a lot of fields we will need in our class! If we were to write a getter/setter for each field, the class would run to 100's of lines. 
+#### Task 1: Implement Lombok & Clean Up Code
+Our first task will be to add a new class to represent all the data in a malignant cancer screening. As you can see from the [file][malignant_dataset_file], which represents malignant screenings for a number of patient's, there are quite a lot of fields we will need in our class! If we were to write a getter/setter for each field, the class would run to 100's of lines.
 
 To get around this, we can use a code generation tool called [Lombok][project_lombok]. Lombok will create getters/setters on the class at runtime, saving us from having to explicitly write them. Now instead of having a bloated class file, we simply have Lombok do all the work using 2 simple annotations at the top of the class! 
 
@@ -282,7 +290,7 @@ We'll do this now in Task 2...
 * You can remove empty constructor from any of our Bean classes.
 * The new screening endpoint should look something like this http://localhost:8080/screenings/842302
 
-#### Task 2
+#### Task 2: Write SQL & Read Data from Database
 Now we're ready to implement the population of screenings from our local database. Running in the background of our Spring app is an in memory database with 100's of [screenings][list_of_sql_screenings]. What we're going to do now is implement a few changes so that we can get this data!
 
 First we need to create our contract for accessing the Screening data from our local database.
@@ -313,7 +321,7 @@ Now we're going to write some SQL to get screenings from the local database.
 * To easily rename a class and all it's references in Intellij, right click the class in the Project menu and click refactor -> rename.
 * The ```ScreeningRowMapper```  maps the SQL screening result to our Java ```Screening``` objects.
 
-#### Task 3
+#### Task 3: Insert Data into Database
 In the previous task we selected, or **Read**, screenings. Now we are going to **Create** them. 
 
 1. Add a new method signature to the ```ScreeningController``` that's purpose is to update a screening.  
@@ -330,11 +338,11 @@ Now we're ready to send some JSON to our new endpoint!
 
 That's it, you've now created an API using Spring!
 
-## Task 4
+## Task 4: Exceptions
 For our final task, we're going to implement a small bit of exception handling. This is to catch errors the our Java program throws when we don't get any results back after running our SQL.
 
 1. In the ```ScreeningDaoImpl``` get for patient id method, implement an empty try/catch block.
-2. Wrap your ```jdmbcTemplaye.queryForObject()``` code in the try block.
+2. Wrap your ```jdmbcTemplate.queryForObject()``` code in the try block.
 3. In the catch block, you want to catch the Exception type ```EmptyResultDataAccessException```.
 4. Print a helpful message in the catch block. 
 
