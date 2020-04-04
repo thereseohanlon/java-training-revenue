@@ -112,6 +112,8 @@ With the app up and running, we can now write some basic code. In our project, w
 
 ![Generate Code 1](files/images/generate_1.png)
 
+That's it for Day 1!
+
 [stack_overflow]: <https://stackoverflow.com/questions/tagged/java>
 [what_is_git]: <https://app.pluralsight.com/course-player?clipId=3fd2f988-28c6-4cbb-8851-94de23080b51>
 [git_hipster_analogy]: <https://app.pluralsight.com/course-player?clipId=e9ff6152-e93f-4b08-89eb-3788cf4d58ce>
