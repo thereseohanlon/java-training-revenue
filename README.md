@@ -2,22 +2,23 @@
 
 Welcome to the TAG training course for Java! This Git repo contains a skeleton project ready for you to clone. Over the next few days, we'll build it up to be a fully fledged Java/Spring API. The aim of this course is to get you familiar with the basics of Java, working with Spring and sending and receiving data through web requests. 
 
-The underlying theme of the app is that it acts as an API for doctors to send and recieve malignant cancer diagnoses, called screenings. Under the hood in the skeleton project is an in-memory database of about 500 cancer diagnoses taken from a well known dataset. This is the same dataset you'll be using in the AI hackathon at the end of your training. By the end of the course, you will be able to query this dataset and insert new records all using by using an API you built! 
+The underlying theme of the app is that it acts as an API for doctors to access and store malignant cancer diagnoses, called screenings. Under the hood in the skeleton project is an in-memory database of about 500 cancer diagnoses taken from a well known dataset. This is the same dataset you'll be using in the AI hackathon at the end of your training. By the end of the course, you will be able to query this dataset and insert new records by using an API you built! 
 
 Sounds exciting!
 
-This course is perfect for complete **Java newbie's**. If you have previous experience in development, this will act as a great refresher. If not, we'll get you up to speed on the basics of how a Java app works. Each day you'll perform a number of **tasks** to build the application. Before you start a task, you should watch the **Pluralsight** videos listed to give you a bit of background and help you complete the task. 
+This course is perfect for complete **Java newbie's**. If you have previous experience in development, this will act as a great refresher. If not, we'll get you up to speed on the basics of how a Java app works. Each day you'll perform a number of **tasks** to build the application. Before you start a task, you should watch the related **Pluralsight** videos listed to give you a bit of background and help you complete the task. But don't rely solely on the videos or the hints in this guide. There's a wealth of information out there on the Internet, paticularly from sites such as [Stack Overflow][stack_overflow]. 
 
-Link to PluralSight: https://app.pluralsight.com/library/
+Link to PluralSight where you should have an account: https://app.pluralsight.com/library/
 
-Some of the things we'll cover:
+Some of the things we'll cover over the next few days:
 
   - Setting up you development environment.
   - Working with Git to clone, commit, push and merge.
   - Creating classes with variables, methods and interfaces and other Java stuff.
-  - Using design patterns to solve the issue of mapping our data to Java.
+  - Using design patterns to solve the issue of mapping our data to Java from the database.
   - Building an API to GET and POST data to a database.
-  - Creating a front end for our app in Angular to input data from a users perspective.
+  - Writing some basic SQL.
+  - Creating a front end for our app in Angular that interacts with our API.
 
 Lets get started...
 
@@ -28,10 +29,10 @@ Lets get started...
 
 Some of the tools we'll be using today include:
 
-  - **Git** is used to store our code. When we make a change, we want to commit it to Git so that it is saved somewhere safe. Others can then pull down our code and run or modify it. **Throughout the course, we will be committing our code to our own private repository**. To do this, we will create a repo in InnserSource and then push our skeleton project to it.
-  - **Intellij** is the IDE we will be using to write and run our code. It's easy to use and contains everything we need to create and deploy Java applications.
-  - **Java** is the language we use to write our code. It is based around the idea of Objects. In our case, a patient that could potentially have a malignant cancer could be a patient object, with a name, date of birth and gender. 
-  - **Postman** is a tool we can use to test our API. It allows us to easily send an recieve data. We will be using this starting from Day 2.
+  - **Git** is used to store and manage our code. When we make a change, we want to commit it to Git so that it is saved somewhere safe. Others can then pull down our code and run or modify it. **Throughout the course, we will be committing our code to our own private repository**. To do this, we will create our own personal repository in [InnserSource][create_an_innersource_account] and then push our skeleton project to it. At the end of each day, we'll push our code up to this repo.
+  - **Intellij** is the IDE we will be using to write and run our code. An IDE is our development environment for writing code. It's easy to use and contains everything we need to create and deploy Java applications.
+  - **Java** is the language we use to write our code. It is based around the idea of Objects. In our case, a patient that could potentially have a malignant cancer could be a ```Patient``` object who has a name, date of birth and gender, which make up the object. 
+  - **Postman** is a tool we can use to test our API. It allows us to easily send an recieve data. We will be using this starting from around Day 2.
 
 ### Pluralsight
 
@@ -66,16 +67,18 @@ With the videos watched, we can now move onto the fun part. What we'll be doing 
 * It's a good idea to have a dedicated development folder on your PC. Perhaps C:/development/projects...
 * Import the project as a Maven project. We'll come to what Maven is later.
 
+![Welcome Screen](files/welcome_screen.png)
+
 #### Task 2: Create and Initialize Some Classes
 With the app up and running, we can now write some basic code. In our project, we want to represent patient's and their cancer diagnoses. We can do this using classes. These classes will contain multiple fields to represent information.
 
 1. First thing first is to create a new branch for the code we're about to write. 
-2. Create a basic class to represent a ```Patient```. Put this object in a new package.
+2. Create a basic class to represent a ```Patient```. Put this object in the patient package.
     1. Name 
     2. Id 
     2. Date of Birth 
     3. Gender
-3. Create another class to represent a ```Screening```. Again, store it in a new package.
+3. Create another class to represent a ```Screening```. Again, store it in the screening package.
     1. Screening Id 
     2. Patient Id
     3. Date of Screening
@@ -99,6 +102,7 @@ With the app up and running, we can now write some basic code. In our project, w
 * Gender can be easily represented using [Enums]
 * Constructors, getters and setters can be automatically [generated] by Intellij to save a lot of typing!
 
+[stack_overflow]: <https://stackoverflow.com/questions/tagged/java>
 [what_is_git]: <https://app.pluralsight.com/course-player?clipId=3fd2f988-28c6-4cbb-8851-94de23080b51>
 [git_hipster_analogy]: <https://app.pluralsight.com/course-player?clipId=e9ff6152-e93f-4b08-89eb-3788cf4d58ce>
 [create_an_innersource_account]: <https://innersource.accenture.com/dashboard>
