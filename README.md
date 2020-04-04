@@ -57,17 +57,17 @@ With the videos watched, we can now move onto the fun part. What we'll be doing 
 
 #### Task 1: Setup Git and Run App
 1. Setup up Git on your local PC.
-2. Clone this Git repository to somewhere on your computer.
+2. Fork this Git repository to your personal InnerSource account and then clone it to somewhere on your computer.
+![Fork](files/images/fork.png )
 3. Import the project into Intellij.
 4. Run the app. You should see a welcome message in the console screen.
-5. Push your project up to your InnerSource repo and verify it is there.
+![Welcome Screen](files/images/welcome_screen.png)
 
 *Hints*
 * You can install [Git for Windows][git_for_windows] to use Git on your laptop.
+* A fork is just a copy of a Git repository that doesn't affect the original!
 * It's a good idea to have a dedicated development folder on your PC. Perhaps C:/development/projects...
 * Import the project as a Maven project. We'll come to what Maven is later.
-
-![Welcome Screen](files/welcome_screen.png)
 
 #### Task 2: Create and Initialize Some Classes
 With the app up and running, we can now write some basic code. In our project, we want to represent patient's and their cancer diagnoses. We can do this using classes. These classes will contain multiple fields to represent information.
