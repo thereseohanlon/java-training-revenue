@@ -1,12 +1,7 @@
 package com.accenture.tagtrainingspring;
 
-import com.accenture.tagtrainingspring.screening.Screening;
-import com.accenture.tagtrainingspring.screening.ScreeningDatabase;
-import com.accenture.tagtrainingspring.screening.ScreeningService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.util.List;
 
 @SpringBootApplication
 public class TagTrainingSpringApplication {
@@ -14,15 +9,6 @@ public class TagTrainingSpringApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TagTrainingSpringApplication.class, args);
 		printWelcomeMessage();
-
-		ScreeningDatabase screeningDatabase = new ScreeningDatabase();
-		ScreeningService screeningService = new ScreeningService(screeningDatabase);
-
-		List<Screening> screeningList = screeningService.getScreenings();
-
-		for (Screening screening : screeningList) {
-			System.out.println("Screening for patient " + screening.getPatient().getName() +  ", returned a malignant result of " +  screening.isMalignant());
-		}
 	}
 
 	private static void printWelcomeMessage() {

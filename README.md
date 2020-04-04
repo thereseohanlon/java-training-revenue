@@ -194,15 +194,14 @@ Let's start...
 ![Day 2 Task 2 Expected Output](files/images/day_2_task_2_expected_output.png)
 
 #### Task 3: Flesh Out Service Class & Implement For-Each Loop
-Now we're going to clean up our code by moving what we've written so far into seperate classes. 
-1. Start by creating a ```ScreeningDatabase``` class to hold all our ```Patients``` and ```Screenings```. 
-2. Add a new public method to this class to return a list of all the screenings.
-3. Update the ```ScreeningService``` class and its constructor to take a ```ScreeningDatabase``` as an argument. Assign it to the class. 
-5. Finally, add a third method to the ```ScreeningService``` to print the result of a screening.
-6. In your main class, create a new ```ScreeningDatabase``` object and pass it into the ```ScreeningService```.
-7. Update your existing screening list to now fetch all the screenings from this service.
-8. Update the ```for-each loop``` to now call the ```ScreeningService``` to print the result. 
-9. Remove any redundant code and check everything works the same way that it did in **Task 2**.
+Now we're going to clean up our code by moving what we've written so far into separate classes. 
+1. Start by creating a ```ScreeningDatabase```.  
+2. Add a new public method to this class to return a list of all the screenings. Move all the patients and screenings to this class.
+3. Update the ```ScreeningService``` class with a field (and its constructor) of type ```ScreeningDatabase```. 
+4. Also give the ```ScreeningService``` a new method to return the list of screenings from the ```ScreeningDatabase``` object it has.
+5. In your main class, create a new ```ScreeningDatabase``` object and pass it into the ```ScreeningService```.
+6. Now in your main class, fetch the ```Screening``` list from the ```ScreeningService```.
+7. Remove any redundant code and hit play! Check the loop still works as it did in **Task 2**.
 
 **Extra points**
 If you've finished the above, congrats! Here's one last challenge:
@@ -219,14 +218,21 @@ Let's begin...
 
 1. In the screening package, create a new ```ScreeningController``` class. Annotate it with ```@RestController```. 
 2. Update the ```ScreeningDatabase``` class to be a bean by adding the ```@Component``` annotation.  
-3. Autowire the ```ScreeningDatabase``` into the ```ScreeningService``` class, removing previous references to ```new```. 
-4. Update the ```ScreeningService``` to itself be a service bean using the ```@Service``` annotation. 
+3. Autowire the ```ScreeningDatabase``` into the ```ScreeningService``` class. 
+4. Update the ```ScreeningService``` to itself be a service bean using the ```@Service``` annotation. You can also remove it's constructor.
 5. Now, autowire the ```ScreeningService``` into the new ```ScreeningController```.
-6. Now add a new method to the ```ScreeningController``` called _getScreening_. This method should take a String as a name, annotated with the ```@PathVariable``` annotation, and return a String result.
-7. Cut the code from the main class we previously wrote and put it here. The main class should now be empty, except for the line ```SpringApplication.run(TagTraining...``` which initializes our whole app. What we want to do in this method is to simply get the screening for a name we pass in from our browser from our service. Then instead of printing the result, simply returning it. This means then result will then display on our browser.
-8. Add the ```@GetMapping("/screenings")``` annotation to give ourselves a path to our new method. This will be the route to call the controller which Spring will map our URL to.  
-9. Run the Spring app and test it out! Try hitting ```http://localhost:8080/screenings/Joe``` from **Postman** and the result for Joe should come back.
-10. Don't forget to merge your Day 2 changes into your master branch!
+6. Now add a new method to the ```ScreeningController``` called _getScreenings_ which returns a list of ```Screening```. This is our first API method which returns all the screenings we have.
+7. Update this new method to call the ```ScreeningService``` get screenings method and return the list of ```Screening```.
+8. Add the Spring ```@GetMapping("/screenings")``` annotation to our new method. This is our URL to access the endpoint.
+9. Run the Spring app and test it out! Try hitting ```http://localhost:8080/screenings``` from **Postman** or **Chrome** and all the screenings should be returned in JSON.
+10. Don't forget to merge your Day 2 changes into your master branch and push to InnerSource!
+
+![Day 2 Task 2 Expected Output](files/images/day_2_task_4_expected_output.png)
+
+*Hints*
+* Your main class by the end of task 4 should only have the line ```SpringApplication.run(TagTrainingSpringApplication.class, args);```
+* Install a JSON formatter in Chrome to prettify your JSON.
+* Spring uses a library called Jackson to automatically formot our objects as JSON. 
 
 [conditional_logic]: <https://app.pluralsight.com/course-player?clipId=08c83d54-1d3e-456a-b122-cb3673f607b3>
 [if_else_statements]: <https://app.pluralsight.com/course-player?clipId=a8930d13-7598-4dd4-b2c6-6b7b0af0f90a>
