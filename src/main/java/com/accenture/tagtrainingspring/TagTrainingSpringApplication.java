@@ -3,6 +3,7 @@ package com.accenture.tagtrainingspring;
 import com.accenture.tagtrainingspring.patient.Gender;
 import com.accenture.tagtrainingspring.patient.Patient;
 import com.accenture.tagtrainingspring.screening.Screening;
+import com.accenture.tagtrainingspring.screening.ScreeningService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -19,6 +20,11 @@ public class TagTrainingSpringApplication {
 		Screening screening = new Screening(1, patient, LocalDate.of(2020, 4, 1), false);
 
 		System.out.println("Patient: " + screening.getPatient().getName() + " has a malignant diagnosis of " + screening.isMalignant());
+
+		ScreeningService screeningService = new ScreeningService();
+		boolean isMatch = screeningService.isPatientScreening(screening, patient);
+
+		System.out.println("Screening: " + screening.getScreeningId() + " has a match of " + isMatch + " with patient: "  + patient.getName());
 	}
 
 	private static void printWelcomeMessage() {

@@ -149,7 +149,7 @@ Some of these Java things we'll cover include:
 
 ### Pluralsight
 
-Again, watch the below videos before you attempt the tasks:
+Again, watch the below videos before you attempt each of the tasks:
 
 * [Conditional Logic][conditional_logic] - What is conditional logic in Java.
 * [If-Else Statements][if_else_statements] - Most commonly used way of making decisions in Java.
@@ -169,22 +169,24 @@ Again, watch the below videos before you attempt the tasks:
 
 ### Tasks
 
-We're going to be applying some of what we've learnt in the above videos to our project now. We use conditional logic to enhance some of the code we've already written. This can be used to prevent errors by checking if certain coniditions are true. We can also leverage the power of collections. This allows us to process multiple objects, such as a list of ```Screening```, at once. 
+We're going to be applying some of what we've learnt in the first few of the above videos to our project now. We use conditional logic to enhance some of the code we've already written. This can be used to prevent errors by checking if certain conditions are true. We can also leverage the power of collections. This allows us to process multiple objects, such as a list of ```Screening```, at once. 
 
 Finally, we're going to add **Spring** to our project! This will allow us to make requests to our app from our browser/Postman using a URL and to get resources (like ```Screenings```) back in response. This is known as a REST API. Again, there's a lot going on under the hood with Spring but we'll just be wiring up the basics. Spring is designed to be very easy to work with and provides a number of **annotations**. These are single lines of code starting with the ```@``` symbol which do a lot of work for us. 
 
 Let's start...
 
 #### Task 1: Use Conditional Logic If/Else
-1. First things first, check your project from yesterday is still working and create a new branch in Git for Day 2!
+1. First things first, check your project from yesterday is still working (printing a patients screening result) and create a new branch in Git for Day 2!
 2. Create a new class called ```ScreeningService``` in the service package.
     1. Give the class a default constructor.
     2. Add a method in the new class that accepts a ```Screening``` & ```Patient``` as parameters. The method should return true or false depending on if the screening is for the specified patient.
 3. In your main class, instantiate the ```ScreeningSerivce```. 
-4. Pass in a screening and patient and capture the result. With the result, print a message stating wheter the screening matches the patient or not.
+4. Pass in a screening and patient and capture the result. With the result, print a message stating if the screening matches the patient or not.
+
+![Day 2 Task 1 Expected Output](files/images/day_2_task_1_expected_output.png)
 
 #### Task 2: Use a Loop to Iterate over Objects
-1. Create a few new ```Patient``` objects 
+1. Create 2 or 3 new ```Patient``` objects 
 2. Also create a few corresponding ```Screening``` objects for each patient.
 3. Create a ```List``` of screenings and add each screening to that list.
 4. Using a loop, iterate over the list of screenings and print out the patient's name and their screening result (like below).
