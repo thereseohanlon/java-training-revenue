@@ -189,7 +189,9 @@ Let's start...
 1. Create 2 or 3 new ```Patient``` objects 
 2. Also create a few corresponding ```Screening``` objects for each patient.
 3. Create a ```List``` of screenings and add each screening to that list.
-4. Using a loop, iterate over the list of screenings and print out the patient's name and their screening result (like below).
+4. Using a loop, iterate over the list of screenings and print out the patient's name and their screening result.
+
+![Day 2 Task 2 Expected Output](files/images/day_2_task_2_expected_output.png)
 
 #### Task 3: Flesh Out Service Class & Implement For-Each Loop
 Now we're going to clean up our code by moving what we've written so far into seperate classes. 
@@ -201,14 +203,6 @@ Now we're going to clean up our code by moving what we've written so far into se
 7. Update your existing screening list to now fetch all the screenings from this service.
 8. Update the ```for-each loop``` to now call the ```ScreeningService``` to print the result. 
 9. Remove any redundant code and check everything works the same way that it did in **Task 2**.
-
-```sh
-Screening for patient Joe, returned a malignant result of false
-Screening for patient Debbie, returned a malignant result of false
-Screening for patient John, returned a malignant result of true
-Screening for patient Cathy, returned a malignant result of true
-Screening for patient Bob, returned a malignant result of false
-```
 
 **Extra points**
 If you've finished the above, congrats! Here's one last challenge:

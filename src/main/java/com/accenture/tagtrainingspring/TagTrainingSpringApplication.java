@@ -8,6 +8,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootApplication
 public class TagTrainingSpringApplication {
@@ -17,14 +19,33 @@ public class TagTrainingSpringApplication {
 		printWelcomeMessage();
 
 		Patient patient = new Patient("Joe", 1, LocalDate.of(1994, 1, 1), Gender.MALE);
-		Screening screening = new Screening(1, patient, LocalDate.of(2020, 4, 1), false);
+		Screening screeningJoe = new Screening(1, patient, LocalDate.of(2020, 4, 1), false);
 
-		System.out.println("Patient: " + screening.getPatient().getName() + " has a malignant diagnosis of " + screening.isMalignant());
+		System.out.println("Patient: " + screeningJoe.getPatient().getName() + " has a malignant diagnosis of " + screeningJoe.isMalignant());
 
 		ScreeningService screeningService = new ScreeningService();
-		boolean isMatch = screeningService.isPatientScreening(screening, patient);
+		boolean isMatch = screeningService.isPatientScreening(screeningJoe, patient);
 
-		System.out.println("Screening: " + screening.getScreeningId() + " has a match of " + isMatch + " with patient: "  + patient.getName());
+		System.out.println("Screening: " + screeningJoe.getScreeningId() + " has a match of " + isMatch + " with patient: "  + patient.getName());
+
+		Patient debbie = new Patient("Debbie", 1, LocalDate.of(1944, 1, 1), Gender.FEMALE);
+		Screening screeningDebbie = new Screening(1, debbie, LocalDate.of(2020, 4, 1), false);
+
+		Patient bob = new Patient("Bob", 1, LocalDate.of(1954, 1, 1), Gender.MALE);
+		Screening screeningBob = new Screening(1, bob, LocalDate.of(2020, 4, 1), false);
+
+		Patient cathy = new Patient("Cathy", 1, LocalDate.of(1984, 1, 1), Gender.FEMALE);
+		Screening screeningCathy = new Screening(1, cathy, LocalDate.of(2020, 4, 1), false);
+
+		List<Screening> screeningList = new ArrayList<>();
+		screeningList.add(screeningJoe);
+		screeningList.add(screeningDebbie);
+		screeningList.add(screeningBob);
+		screeningList.add(screeningCathy);
+
+		for (Screening screening : screeningList) {
+			System.out.println("Screening for patient " + screening.getPatient().getName() +  ", returned a malignant result of " +  screening.isMalignant());
+		}
 	}
 
 	private static void printWelcomeMessage() {
