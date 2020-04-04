@@ -69,41 +69,46 @@ With the videos watched, we can now move onto the fun part. What we'll be doing 
 *Hints*
 * You can install [Git for Windows][git_for_windows] to use Git on your laptop.
 * A fork is just a copy of a Git repository that doesn't affect the original!
+* The URL for your cloned version of this project should looks like this: https://innersource.accenture.com/scm/~alexander.kiernan/tag-training-spring-fork-test.git
+* If you have any problems forking or cloning, you can simply download this project and run it locally.
 * It's a good idea to have a dedicated development folder on your PC. Perhaps C:/development/projects...
 * Import the project as a Maven project. We'll come to what Maven is later.
 
 #### Task 2: Create and Initialize Some Classes
-With the app up and running, we can now write some basic code. In our project, we want to represent patient's and their cancer diagnoses. We can do this using classes. These classes will contain multiple fields to represent information.
+With the app up and running, we can now write some basic code. In our project, we want to represent patient's and their cancer diagnoses. We can do this using classes. Each new patient will be an object which is an instance of our patient class. These classes will contain multiple fields to represent the information we need. Read the hints for more info on how to correctly name and populate these objects.
 
-1. First thing first is to create a new branch for the code we're about to write. 
-2. Create a basic class to represent a ```Patient```. Put this object in the patient package.
+1. First thing first is to create a new branch in git for the code we're about to write.  
+2. Create a basic class to represent a ```Patient```. Put this object in the patient package. Give it the following fields:
     1. Name 
     2. Id 
-    2. Date of Birth 
+    2. Date of Birth
     3. Gender
 3. Create another class to represent a ```Screening```. Again, store it in the screening package.
     1. Screening Id 
     2. Patient Id
     3. Date of Screening
-    4. Malignant Result
+    4. Malignant Result (True/False)
 4. Add a constructor to each class.
 5. Add getters and setters for each field.
-6. In your main class, create a new instance of each object using some dummy data.
-7. Print out the patient's name and their diaganosis to the console using a ```String```.
+6. In the ```main``` method in the ```TagTrainingSpringApplication``` class, create a new instance of each object using some dummy data.
+7. Print out the patient's name and their diagnosis to the console using a ```String```.
+![Joe Result](files/images/task_2_subtask_1_result.png)
 8. Change the ```patientId``` field in ```Screening``` to be an instance of ```Patient```. You will need to update the constructor, getters & setters.
 9. Rerun the app and verify the same info is printed to the console.
 10. Update the patient's name using the setter on the ```Patient``` class. Verify the new name is printed.
-11. Merge your changes into your main branch and push it up to InnerSource!
+11. Once everything's done, merge your changes into your main branch and push it up to InnerSource!
 
 *Hints*
-* In most project you have a main branch and your own dev branch. Call the branch something identifiable, such as john_doe_dev.
+* In most project you have a main branch and your own dev branch. Call the branch something identifiable, such as john_doe_dev, or day_1.
 * Switching to a new branch is easy. Simply use ```git checkout -b <branch>```
 * Packages help logically organize our code. You can either create a package called models for both classes or better yet a new package for each.
 * [Naming] is important in Java. i.e. ```Patient``` class goes into the ```patient``` package. 
 * ID fields are normally of type ```Integer```, i.e. 1, 2, 3...
 * Date's can be represented using the ```LocalDate``` type.
-* Gender can be easily represented using [Enums]
-* Constructors, getters and setters can be automatically [generated] by Intellij to save a lot of typing!
+* Gender can be easily represented using [Enums]. One is already provided!
+* Constructors, getters and setters can be automatically [generated] by Intellij to save a lot of typing! (See below)
+
+![Generate Code 1](files/images/generate_1.png)
 
 [stack_overflow]: <https://stackoverflow.com/questions/tagged/java>
 [what_is_git]: <https://app.pluralsight.com/course-player?clipId=3fd2f988-28c6-4cbb-8851-94de23080b51>
