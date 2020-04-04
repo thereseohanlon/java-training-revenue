@@ -58,9 +58,12 @@ With the videos watched, we can now move onto the fun part. What we'll be doing 
 #### Task 1: Setup Git and Run App
 1. Setup up Git on your local PC.
 2. Fork this Git repository to your personal InnerSource account and then clone it to somewhere on your computer.
+
 ![Fork](files/images/fork.png )
+
 3. Import the project into Intellij.
 4. Run the app. You should see a welcome message in the console screen.
+
 ![Welcome Screen](files/images/welcome_screen.png)
 
 *Hints*
