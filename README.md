@@ -92,7 +92,9 @@ With the app up and running, we can now write some basic code. In our project, w
 5. Add getters and setters for each field.
 6. In the ```main``` method in the ```TagTrainingSpringApplication``` class, create a new instance of each object using some dummy data.
 7. Print out the patient's name and their diagnosis to the console using a ```String```.
+
 ![Joe Result](files/images/task_2_subtask_1_result.png)
+
 8. Change the ```patientId``` field in ```Screening``` to be an instance of ```Patient```. You will need to update the constructor, getters & setters.
 9. Rerun the app and verify the same info is printed to the console.
 10. Update the patient's name using the setter on the ```Patient``` class. Verify the new name is printed.
