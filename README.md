@@ -325,20 +325,20 @@ First we need to create our contract for accessing the Screening data from our l
 6. Press play and check everything is still working!
 
 Now we're going to write some SQL to get screenings from the local database. 
-1. First autowire the ```JdbcTemplate``` Bean into our ```ScreeningDaoImpl```. This is used to execute our SQL.
-2. Create a new *String* to represent an SQL statement to get all the fields from the table *screening_results*.
-3. Add [this][screening_jdbc_all] line to your method which will use the JDBCTemplate to attempt to execute your SQL and return a list of ```Screenings```. 
-4. Do the same for a single patient id. Use [this][screening_jdbc_single] Java code to execute your SQL to return just a single ```Screening```.
-5. Update both methods 
-5. Update the ```ScreeningController``` existing get method to directly return a ```Screening```. Spring will automatically convert the object to JSON for us as we are using the ```@RestController``` annotation. 
-7. Add a new method to the ```ScreeningController``` to get all screenings. Again, return a list ```Screening```.
-8. Run the app and check that the endpoints are now working. 
+1. First autowire the ```JdbcTemplate``` Bean into our ```ScreeningDaoImpl```. This bean is provided by Spring to easily execute our SQL.
+2. Uncomment the class ```ScreeningRowMapper```. This was disabled up until now as the Screening class didn't have the correct fields we needed to map.
+3. Create a new *String* to represent an SQL statement to get all the fields from the table *screening_results*.
+4. Add [this][screening_jdbc_all] line to your method which will use the JDBCTemplate to attempt to execute your SQL you just wrote and return a list of ```Screenings```. 
+5. Do the same for a single patient id. Use [this][screening_jdbc_single] Java code to execute your SQL to return just a single ```Screening```.
+6. Update the ```ScreeningController``` with a new endpoint to accept a single patient id and return the Screening from the DAO using the above method. You can use the ```@PathVariable``` annotation in the method signature.
+7. Run the app and check that both the endpoints are now working! 
 
-**To Test the Endpoints**: Try a patient id that does exist and one that does not. You should get an error for the one that does not exist. This is an exception and we will be updating our code to better handle this later. Also, try the endpoint to get all Screenings. It should return every ```Screening``` from the database as one big blob of JSON.
+**To Test the Endpoints**: Try a patient id (from the [data set][malignant_dataset_file]) that does exist and one that does not. You should get an error for the one that does not exist. This is an exception and we will be updating our code to better handle this later. Also, try the endpoint to get all Screenings. It should return every ```Screening``` from the database as one big blob of JSON.
+
+![GET Screening](files/images/get_screening.png)
 
 *Hints*
 * Intellij can implement the methods from an interface automatically for you. Click the red ballon after you have added the ```implements ScreeningDao``` line to the ```ScreeningDatabase``` and click *Implement Methods*.
-* To easily rename a class and all it's references in Intellij, right click the class in the Project menu and click refactor -> rename.
 * The ```ScreeningRowMapper```  maps the SQL screening result to our Java ```Screening``` objects.
 
 #### Task 3: Insert Data into Database
@@ -389,8 +389,8 @@ Done! We have now implemented **C** and **R** from **CRUD** in our Screening API
 [sql_select]: <https://app.pluralsight.com/course-player?clipId=07e1f022-3398-445b-a077-0665a62da7dc>
 [sql_insert]: <https://app.pluralsight.com/course-player?clipId=7f52450a-2b0b-443a-bd52-d17b64c553f8>
 [list_of_sql_screenings]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/src/main/resources/db/data.sql?at=refs%2Fheads%2Fday_3>
-[screening_jdbc_single]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/files/get_single_screening_query?at=day_3>
-[screening_jdbc_all]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/files/get_all_screenings_query?at=day_3>
+[screening_jdbc_single]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/files/get_single_screening_query>
+[screening_jdbc_all]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/files/get_all_screenings_query>
 [request_mapping_example]: <https://www.baeldung.com/spring-requestmapping#1-requestmapping---by-path>
 [exceptions]: <https://app.pluralsight.com/course-player?clipId=fdc2608f-2949-46ef-9c07-92e50fcec29d>
 
