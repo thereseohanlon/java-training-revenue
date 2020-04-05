@@ -259,6 +259,17 @@ For the final day of Java training, well be adding some additional features to o
 
 In the background of our Spring app is a pre-populated, in-memory database of screenings. This is what we're going to be interacting with today to get and store data through our API. The database contains about 500 screenings with each one being uniquely identified by an *id*. This id belongs to a single patient. Our Spring app interacts with the database using the power of SQL. We'll only have to write a few lines to get things up and running.     
 
+If you want to play around with the in-memory database, you can! To do so:
+
+1. Login to the database using the following url: http://localhost:8080/h2-console
+2. You should see the following login form. If the box for JDBC url isn't populated with the below, simply copy ```jdbc:h2:mem:malignantScreeningDB``` in and then connect.
+
+![H2 Login](files/images/h2_login.png)
+
+3. Once in, click the ```SCREENING_RESULTS``` column on the left and start typing some SQL into the form! The example below lists all the screenings in the database. Don't worry about breaking anything. Whenever you restart the Spring app, the DB is reloaded from scratch. 
+
+![H2 SQL](files/images/h2_sql.png)
+
 ### Pluralsight
 
 Below are several videos to watch related to Spring, Maven, HTTP, API's and databases, all of which we're going to cover in the tasks for today:
