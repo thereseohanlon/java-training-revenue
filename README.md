@@ -319,14 +319,13 @@ First we need to create our contract for accessing the Screening data from our l
 2. Give the interface 2 methods.
     1. Get a ```Screening``` for a patient id.
     2. Get all the ```Screenings```.
-3. Have the ```ScreeningDatabase``` implement the ```ScreeningDao```. 
-4. To polish everything off, rename the ```ScreeningDatabase``` to ```ScreeningDaoImpl```.  
-5. Lastly, delete the ```ScreeningSerivce``` and update the references to it to ```ScreeninfDao```where it's referenced in the ```ScreeningContoller```. Also update the method the controller uses to the new interface method to get a single ```Screening```. 
-6. Lastly, lastly, delete the ```screeningStore``` method from our ScreeningDaoImpl. Save the Patient objects as we'll need them later.
-5. Check everything is still working!
+3. Create a new class called ```ScreeningDaoImpl``` that implements the ```ScreeningDao``` (can use Intellij again to generate methods). Wire it up as a Spring bean. 
+4. Lastly, delete the ```ScreeningSerivce``` ```getScreenings``` method. We're now just going to use our DAO above to get data.
+5. Lastly, lastly, replace the ```ScreeningSerivce``` with ```ScreeningDaoImpl``` update any references.
+6. Press play and check everything is still working!
 
 Now we're going to write some SQL to get screenings from the local database. 
-1. First autowire the ```JdbcTemplate``` Bean into our ```ScreeningDaoImpl```. This is used to executre our SQL.
+1. First autowire the ```JdbcTemplate``` Bean into our ```ScreeningDaoImpl```. This is used to execute our SQL.
 2. Create a new *String* to represent an SQL statement to get all the fields from the table *screening_results*.
 3. Add [this][screening_jdbc_all] line to your method which will use the JDBCTemplate to attempt to execute your SQL and return a list of ```Screenings```. 
 4. Do the same for a single patient id. Use [this][screening_jdbc_single] Java code to execute your SQL to return just a single ```Screening```.

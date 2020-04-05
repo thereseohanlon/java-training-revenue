@@ -10,11 +10,11 @@ import java.util.List;
 public class ScreeningController {
 
     @Autowired
-    ScreeningService screeningService;
+    ScreeningDaoImpl screeningDao;
 
     @GetMapping("/screenings")
     public List<Screening> getScreening() {
-        return screeningService.getScreenings();
+        return screeningDao.get();
     }
 
 }
