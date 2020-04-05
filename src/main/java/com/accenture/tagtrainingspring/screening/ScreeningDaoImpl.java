@@ -24,4 +24,10 @@ public class ScreeningDaoImpl implements ScreeningDao {
         return jdbcTemplate.query(sql, new ScreeningRowMapper());
     }
 
+    @Override
+    public void save(Screening screening) {
+        String sql = "insert into screening_results (id, diagnosis, symmetry_mean, group_id) values (?, ?, ?, ?)";
+        jdbcTemplate.update(sql, screening.getId(), screening.getDiagnosis(), screening.getSymmetryMean(), screening.getGroupId());
+    }
+
 }

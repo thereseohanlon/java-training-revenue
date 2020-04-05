@@ -356,6 +356,8 @@ Now we're ready to send some JSON to our new endpoint!
 3. **Modify** some of the values on the request, particularly  the screening *id*.
 4. Send it and verify your new screening exists by fetching the screening for the new patient id.
 
+![POST Screening](files/images/post_screening.png)
+
 That's it, you've now created an API using Spring!
 
 #### Task 4: Exceptions

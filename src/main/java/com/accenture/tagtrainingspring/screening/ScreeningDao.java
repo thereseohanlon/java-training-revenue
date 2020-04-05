@@ -8,4 +8,6 @@ public interface ScreeningDao {
 
     List<Screening> get();
 
+    void save(Screening screening);
+
 }
