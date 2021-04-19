@@ -1,16 +1,14 @@
-# Accenture TAG Training - Cancer Diagnosis Predictor 
+# Revenue Java Training - Cancer Diagnosis Predictor 
 
-Welcome to the TAG training course for Java! This Git repo contains a skeleton project ready for you to clone. Over the next few days, we'll build it up to be a fully fledged Java/Spring API. The aim of this course is to get you familiar with the basics of Java, working with Spring and sending and receiving data through web requests. 
+Welcome to the Revenue training course for Java! This Git repo contains a skeleton project ready for you to clone. Over the next few days, we'll build it up to be a fully fledged Java/Spring API. The aim of this course is to get you familiar with the basics of Java, working with Spring and sending and receiving data through web requests. 
 
 The underlying theme of the app is that it acts as an API for doctors to access and store malignant cancer diagnoses, called screenings. Under the hood in the skeleton project is an in-memory database of about 500 cancer diagnoses taken from a well known dataset. This is the same dataset you'll be using in the AI hackathon at the end of your training. By the end of the course, you will be able to query this dataset and insert new records by using an API you built! 
 
 Sounds exciting!
 
-This course is perfect for complete **Java newbie's**. If you have previous experience in development, this will act as a great refresher. If not, we'll get you up to speed on the basics of how a Java app works. Each day you'll perform a number of **tasks** to build the application. Before you start a task, you should watch the related **Pluralsight** videos listed to give you a bit of background and help you complete the task. But don't rely solely on the videos or the hints in this guide. There's a wealth of information out there on the Internet, paticularly from sites such as [Stack Overflow][stack_overflow]. 
+This course is perfect for complete **Java newbie's**. If you have previous experience in development, this will act as a great refresher. If not, we'll get you up to speed on the basics of how a Java app works. Each day you'll perform a number of **tasks** to build the application. Before you start a task, you should watch the related **YouTube** videos listed to give you a bit of background and help you complete the task. But don't rely solely on the videos or the hints in this guide. There's a wealth of information out there on the Internet, particularly from sites such as [Stack Overflow][stack_overflow]. 
 
-Link to PluralSight where you should have an account: https://app.pluralsight.com/library/
-
-Some of the things we'll cover over the next few days:
+Some things we'll cover over the next few days include:
 
   - Setting up you development environment.
   - Working with Git to clone, commit, push and merge.
@@ -20,21 +18,21 @@ Some of the things we'll cover over the next few days:
   - Writing some basic SQL.
   - Creating a front end for our app in Angular that interacts with our API.
 
-Lets get started...
+Let's get started...
 
 ---
 ## Day 1
 
 ### Overview
 
-Some of the tools we'll be using today include:
+Some tools we'll be using today include:
 
-  - **Git** is used to store and manage our code. When we make a change, we want to commit it to Git so that it is saved somewhere safe. Others can then pull down our code and run or modify it. **Throughout the course, we will be committing our code to our own private repository**. To do this, we will create our own personal repository in [InnserSource][create_an_innersource_account] and then push our skeleton project to it. At the end of each day, we'll push our code up to this repo.
+  - **Git** is used to store and manage our code. When we make a change, we want to commit it to Git so that it is saved somewhere safe. Others can then pull down our code and run or modify it. **Throughout the course, we will be committing our code to our own private repository**. To do this, we will create our own personal repository in [GitHub][create_an_innersource_account] and then push our skeleton project to it. At the end of each day, we'll push our code up to this repo.
   - **Intellij** is the IDE we will be using to write and run our code. An IDE is our development environment for writing code. It's easy to use and contains everything we need to create and deploy Java applications.
   - **Java** is the language we use to write our code. It is based around the idea of Objects. In our case, a patient that could potentially have a malignant cancer could be a ```Patient``` object who has a name, date of birth and gender, which make up the object. 
   - **Postman** is a tool we can use to test our API. It allows us to easily send an recieve data. We will be using this starting from around Day 2.
 
-### Pluralsight
+### Training Material
 
 Watch the below videos before you attempt the first task:
 
@@ -47,7 +45,6 @@ Watch the below videos before you attempt the first task:
 * [Packages][packages] - Classes are stored in packages. They help to logically organize our code.
 * [Variables][variables] - Variables are used in all programming languages to store data.
 * [Classes][classes] - Classes are a how we represent our data.
-* [Initializing Classes][initializing_classes] - How to create a new object.
 * [Methods][methods] - These allow us to perform operations on our classes.
 * [Strings][strings] - Strings represent sentences and allow us to represent information.
 
@@ -57,7 +54,7 @@ With the videos watched, we can now move onto the fun part. What we'll be doing 
 
 #### Task 1: Setup Git and Run App
 1. Setup up Git on your local PC.
-2. Fork this Git repository to your personal InnerSource account and then clone it to somewhere on your computer.
+2. Fork this Git repository to your personal GitHub account and then clone it to somewhere on your computer.
 
 ![Fork](files/images/fork.png )
 
@@ -69,7 +66,7 @@ With the videos watched, we can now move onto the fun part. What we'll be doing 
 *Hints*
 * You can install [Git for Windows][git_for_windows] to use Git on your laptop.
 * A fork is just a copy of a Git repository that doesn't affect the original!
-* The URL for your cloned version of this project should looks like this: https://innersource.accenture.com/scm/~alexander.kiernan/tag-training-spring-fork-test.git
+* The URL for your cloned version of this project should look like this: https://github.com/TAG-Training/revenue-java-training.git
 * If you have any problems forking or cloning, you can simply download this project and run it locally.
 * It's a good idea to have a dedicated development folder on your PC. Perhaps C:/development/projects...
 * Import the project as a Maven project. We'll come to what Maven is later.
@@ -98,7 +95,7 @@ With the app up and running, we can now write some basic code. In our project, w
 8. Change the ```patientId``` field in ```Screening``` to be an instance of ```Patient```. You will need to update the constructor, getters & setters.
 9. Rerun the app and verify the same info is printed to the console.
 10. Update the patient's name using the setter on the ```Patient``` class. Verify the new name is printed.
-11. Once everything's done, merge your changes into your main branch and push it up to InnerSource!
+11. Once everything's done, merge your changes into your main branch and push it up to GitHub!
 
 *Hints*
 * In most project you have a main branch and your own dev branch. Call the branch something identifiable, such as john_doe_dev, or day_1.
@@ -115,24 +112,23 @@ With the app up and running, we can now write some basic code. In our project, w
 That's it for Day 1!
 
 [stack_overflow]: <https://stackoverflow.com/questions/tagged/java>
-[what_is_git]: <https://app.pluralsight.com/course-player?clipId=3fd2f988-28c6-4cbb-8851-94de23080b51>
-[git_hipster_analogy]: <https://app.pluralsight.com/course-player?clipId=e9ff6152-e93f-4b08-89eb-3788cf4d58ce>
-[create_an_innersource_account]: <https://innersource.accenture.com/dashboard>
-[basic_git_commands]: <https://app.pluralsight.com/course-player?clipId=acfe96df-3bb7-49a7-8054-9e3d72e2c638>
-[what_is_java]: <https://app.pluralsight.com/course-player?clipId=f7a9fd0c-1ee8-4628-b21c-ef5a3d246f72>
-[jre_and_jdk]: <https://app.pluralsight.com/course-player?clipId=da83e7db-4c5e-4307-aad5-0826861155e2>
-[creating_a_basic_intellij_java_Project]: <https://app.pluralsight.com/course-player?clipId=7e4f3268-9649-4891-bfe1-58764e5e11e9>
-[variables]: <https://app.pluralsight.com/course-player?clipId=11a5bc5d-1099-43c5-b773-43045ed9bf0e>
-[classes]: <https://app.pluralsight.com/course-player?clipId=6643ae8b-28b6-41fb-bba4-569ef4731e36>
-[initializing_classes]: <https://app.pluralsight.com/course-player?clipId=3e20bd6d-313e-457a-9d32-50a7b07fa095> 
-[methods]: <https://app.pluralsight.com/course-player?clipId=749e618f-c96d-4bd4-b189-40de5ace3cc2>
-[strings]: <https://app.pluralsight.com/course-player?clipId=51951ff1-78df-4253-841d-7e8fe9e5fc8c>
+[what_is_git]: <https://www.youtube.com/watch?v=2ReR1YJrNOM>
+[git_hipster_analogy]: <https://www.youtube.com/watch?v=uUuTYDg9XoI>
+[create_an_innersource_account]: <https://github.com/join>
+[basic_git_commands]: <https://www.youtube.com/watch?v=USjZcfj8yxE>
+[what_is_java]: <https://www.youtube.com/watch?v=2Xa3Y4xz8_s>
+[jre_and_jdk]: <https://www.youtube.com/watch?v=BXFHuaQNnLo>
+[creating_a_basic_intellij_java_Project]: <https://www.youtube.com/watch?v=yefmcX57Eyg>
+[variables]: <https://www.youtube.com/watch?v=so1iUWaLmKA>
+[classes]: <https://www.youtube.com/watch?v=IUqKuGNasdM>
+[methods]: <https://www.youtube.com/watch?v=cCgOESMQe44>
+[strings]: <https://www.youtube.com/watch?v=3xuJIaP3C4g>
 [git_for_windows]: <https://git-scm.com/download/win>
-[packages]: <https://app.pluralsight.com/course-player?clipId=19f914da-1abe-47dd-baf7-6018d4a14e07>
+[packages]: <https://youtu.be/yefmcX57Eyg?t=4955>
 [localdate]: <http://tutorials.jenkov.com/java-date-time/localdate.html>
 [naming]: <https://www.javatpoint.com/java-naming-conventions>
 [generated]: <https://www.jetbrains.com/help/idea/generating-code.html>
-[enums]: <https://app.pluralsight.com/course-player?clipId=b0f36740-9708-4229-a7cd-ddaaf0ccbf86>
+[enums]: <https://www.youtube.com/watch?v=LYKHxwQ0QH8>
 
 ---
 ## Day 2
@@ -147,25 +143,25 @@ Some of these Java things we'll cover include:
   - **Arrays** allow us to store multiple objects together.
   - **Methods** are a core part of classes in Java. They allow us to perform operations on our objects. 
 
-### Pluralsight
+### Training Material
 
 Again, watch the below videos before you attempt each of the tasks:
 
 * [Conditional Logic][conditional_logic] - What is conditional logic in Java.
 * [If-Else Statements][if_else_statements] - Most commonly used way of making decisions in Java.
 * [Logical Operators][logical_operators] - We use logical operators to make decisions in our conditional logic. i.e. is 1 == 1, true.
-* [Switch][switch] - Similiar to an if-else statement, but more appropiate in certain contexts. 
+* [Switch][switch] - Similar to an if-else statement, but more appropriate in certain contexts. 
 * [Arrays][arrays] - Way of storing multiple objects in a group.
-* [Lists][lists] - A type of collection similiar to an array but with additional functions.
+* [Lists][lists] - A type of collection similar to an array but with additional functions.
 * [Loops][loops] - How to loop over a list of objects.
 * [For-each Loop][for_each_loop] - Handy way of looping over objects.
 * [Equality][equality] - For when you're trying to find a match between two objects.
 * [Null][null] - Objects that have no data are null.
-* [Spring Intro][spring_intro] - Watch this section of videos to get an idea of what Spring is and why we use it.
-* [REST API][what_is_rest] - REST is what we use to send and recieve information. In our case it will be screening results.
+* [Spring Intro][spring_intro] - Watch just the intro to get an idea of what Spring is and why we use it.
+* [REST API][what_is_rest] - REST is what we use to send and receive information. In our case it will be screening results.
 * [Spring REST][spring_rest] - Here's how to do it in Spring!
 * [Autowring][autowiring] and a short [demo][autowiring_demo] - The spring framework comes with handy Java annotations that reduce the amount of code we need to write. 
-* [Spring Annotations][list_of_annotations] - Bit of background on the annotations we will use. In paticular, ```@Autowired```, ```@Service``` and ```@GetMapping```. 
+* [Spring Annotations][list_of_annotations] - Bit of background on the annotations we will use. In particular, ```@Autowired```, ```@Service``` and ```@GetMapping```. 
 
 ### Tasks
 
@@ -225,7 +221,7 @@ Let's begin...
 7. Update this new method to call the ```ScreeningService``` get screenings method and return the list of ```Screening```.
 8. Add the Spring ```@GetMapping("/screenings")``` annotation to our new method. This is our URL to access the endpoint.
 9. Run the Spring app and test it out! Try hitting ```http://localhost:8080/screenings``` from **Postman** or **Chrome** and all the screenings should be returned in JSON.
-10. Don't forget to merge your Day 2 changes into your master branch and push to InnerSource!
+10. Don't forget to merge your Day 2 changes into your master branch and push to GitHub!
 
 ![Day 2 Task 4 Expected Output](files/images/day_2_task_4_expected_output.png)
 
@@ -234,21 +230,21 @@ Let's begin...
 * Install a JSON formatter in Chrome to prettify your JSON.
 * Spring uses a library called Jackson to automatically formot our objects as JSON. 
 
-[conditional_logic]: <https://app.pluralsight.com/course-player?clipId=08c83d54-1d3e-456a-b122-cb3673f607b3>
-[if_else_statements]: <https://app.pluralsight.com/course-player?clipId=a8930d13-7598-4dd4-b2c6-6b7b0af0f90a>
-[logical_operators]: <https://app.pluralsight.com/course-player?clipId=967235c1-a424-41a4-9918-f9646086ee10>
-[switch]: <https://app.pluralsight.com/course-player?clipId=25d15753-fb1b-4fe8-a8e6-38224b46dab8>
-[lists]: <https://www.geeksforgeeks.org/list-interface-java-examples/>
-[loops]: <https://app.pluralsight.com/course-player?clipId=3ba624b3-c92c-448c-b7ee-c049d6efaf56>
-[arrays]: <https://app.pluralsight.com/course-player?clipId=03ae8d9a-388d-4b66-a5e3-d07ea816ea33>
-[for_each_loop]: <https://app.pluralsight.com/course-player?clipId=212fb6c9-95bd-4f6b-8a26-11057209fae0>
-[equality]: <https://app.pluralsight.com/course-player?clipId=f2819dd2-aff3-4151-b518-4c0567420bec>
-[null]: <https://app.pluralsight.com/course-player?clipId=c7af73fd-11f5-4f01-910e-e1b26c3e6268>
-[spring_intro]: <https://app.pluralsight.com/course-player?clipId=e8197f0f-d207-463f-aca4-7eeb975f30b2>
-[what_is_rest]: <https://app.pluralsight.com/player?course=rest-fundamentals&author=howard-dierking&name=rest-m1-intro&clip=1&mode=live>
+[conditional_logic]: <https://www.youtube.com/watch?v=ln_vMXXXeDI>
+[if_else_statements]: <https://www.youtube.com/watch?v=yvWnj_HfG6s>
+[logical_operators]: <https://www.youtube.com/watch?v=p0UCTkqU2mg>
+[switch]: <https://www.youtube.com/watch?v=O4KGYGQvHmw>
+[lists]: <https://www.youtube.com/watch?v=YQQio9BGWgs>
+[loops]: <https://www.youtube.com/watch?v=3jMaKlNBjug>
+[arrays]: <https://www.youtube.com/watch?v=xzjZy-dHHLw>
+[for_each_loop]: <https://www.youtube.com/watch?v=t8mmNbgKA8w>
+[equality]: <https://www.youtube.com/watch?v=9CVcmxYWm5U>
+[null]: <https://www.youtube.com/watch?v=kot131zufIQ>
+[spring_intro]: <https://www.youtube.com/watch?v=vtPkZShrvXQ>
+[what_is_rest]: <https://www.youtube.com/watch?v=6sUbt-Qp6Pg>
 [spring_rest]: <https://spring.io/guides/gs/rest-service/>
-[autowiring]: <https://app.pluralsight.com/course-player?clipId=e3e71c50-7283-4788-a62f-392a5ef9dfb4>
-[autowiring_demo]: <https://app.pluralsight.com/course-player?clipId=aa960afc-3bf1-4ed8-bcab-d7f9ab52500f>
+[autowiring]: <https://www.youtube.com/watch?v=k0aChfMjA-4>
+[autowiring_demo]: <https://www.youtube.com/watch?v=k0aChfMjA-4>
 [list_of_annotations]: <https://springframework.guru/spring-framework-annotations/>
 
 ---
@@ -270,7 +266,7 @@ If you want to play around with the in-memory database, you can! To do so:
 
 ![H2 SQL](files/images/h2_sql.png)
 
-### Pluralsight
+### Training Material
 
 Below are several videos to watch related to Spring, Maven, HTTP, API's and databases, all of which we're going to cover in the tasks for today:
 
@@ -372,7 +368,7 @@ Now we're ready to send some JSON to our new endpoint!
 That's it, you've now created an API using Spring!
 
 #### Task 4: Exceptions
-For our final task, we're going to implement a small bit of exception handling. This is to catch errors the our Java program throws when we don't get any results back after running our SQL.
+For our final task, we're going to implement a small bit of exception handling. This is to catch errors in our Java program when we don't get any results back after running our SQL.
 
 1. In the ```ScreeningDaoImpl``` get for patient id method, implement an empty try/catch block.
 2. Wrap your ```jdmbcTemplate.queryForObject()``` code in the try block.
@@ -386,23 +382,23 @@ For extra points, you can implement logging! Logs are what we analyze on live sy
 
 Done! We have now implemented **C** and **R** from **CRUD** in our Screening API. 
 
-[malignant_dataset_file]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/src/main/resources/malignant_cancer_dataset.csv?at=day_3>
+[malignant_dataset_file]: <https://github.com/TAG-Training/revenue-java-training/blob/day_3/files/malignant_cancer_dataset.csv>
 [project_lombok]: <https://projectlombok.org/>
 [lombok_dependency]: <https://mvnrepository.com/artifact/org.projectlombok/lombok/1.18.12>
-[design_patterns_intro]: <https://app.pluralsight.com/player?course=patterns-library&author=david-starr&name=pattern-introduction&clip=1&mode=live>
-[interfaces]: <https://app.pluralsight.com/course-player?clipId=d4231326-1038-403d-99e9-686dc460eb59>
-[what_is_maven]: <https://app.pluralsight.com/course-player?clipId=b70e1c45-eeb9-4c8b-a87c-ae14e68f2828>
+[design_patterns_intro]: <https://youtu.be/NU_1StN5Tkk?t=101>
+[interfaces]: <https://www.youtube.com/watch?v=kTpp5n_CppQ>
+[what_is_maven]: <https://www.youtube.com/watch?v=dqJanLvjDqc>
 [what_is_lombok]: <https://www.vogella.com/tutorials/Lombok/article.html>
-[what_is_json]: <https://app.pluralsight.com/course-player?clipId=ae43bd39-46e6-41b3-b005-0ba6cc29d020>
+[what_is_json]: <https://www.youtube.com/watch?v=iiADhChRriM>
 [intellij_lombok]: <https://www.baeldung.com/lombok-ide>
-[result_fields]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/files/result_fields>
+[result_fields]: <https://github.com/TAG-Training/revenue-java-training/blob/day_3/files/result_fields>
 [dao_pattern]: <https://www.tutorialspoint.com/design_pattern/data_access_object_pattern.htm>
 [what_is_crud]: <https://www.codecademy.com/articles/what-is-crud>
-[intro_to_sql]: <https://app.pluralsight.com/course-player?clipId=6ab80ae6-a01f-4e9d-b5d6-d1258a00bfd0>
-[sql_select]: <https://app.pluralsight.com/course-player?clipId=07e1f022-3398-445b-a077-0665a62da7dc>
-[sql_insert]: <https://app.pluralsight.com/course-player?clipId=7f52450a-2b0b-443a-bd52-d17b64c553f8>
-[list_of_sql_screenings]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/src/main/resources/db/data.sql?at=refs%2Fheads%2Fday_3>
-[screening_jdbc_single]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/files/get_single_screening_query>
-[screening_jdbc_all]: <https://innersource.accenture.com/projects/TTSA/repos/tag-training-spring/browse/files/get_all_screenings_query>
+[intro_to_sql]: <https://www.youtube.com/watch?v=27axs9dO7AE>
+[sql_select]: <https://www.w3schools.com/sql/sql_select.asp>
+[sql_insert]: <https://www.w3schools.com/sql/sql_insert.asp>
+[list_of_sql_screenings]: <https://github.com/TAG-Training/revenue-java-training/blob/day_3/src/main/resources/db/data.sql>
+[screening_jdbc_single]: <https://github.com/TAG-Training/revenue-java-training/blob/day_3/files/get_single_screening_query>
+[screening_jdbc_all]: <https://github.com/TAG-Training/revenue-java-training/blob/day_3/files/get_all_screenings_query>
 [request_mapping_example]: <https://www.baeldung.com/spring-requestmapping#1-requestmapping---by-path>
-[exceptions]: <https://app.pluralsight.com/course-player?clipId=fdc2608f-2949-46ef-9c07-92e50fcec29d>
+[exceptions]: <https://www.youtube.com/watch?v=xNVlq9IEBEg>
